@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/01/29 17:10:26 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:47:28 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,24 @@ int	print_error(void)
 	return (1);
 }
 
-t_strategy	strategy_selector(char *arg)
+bool	strat_selector(t_strategy *strategy, char *arg)
 {
 	if (!ft_strncmp(arg, "--simple"))
-		return (SIMPLE);
+		*strategy = SIMPLE;
 	else if (!ft_strncmp(arg, "--medium"))
-		return (MEDIUM);
+		*strategy = MEDIUM;
 	else if (!ft_strncmp(arg, "--complex"))
-		return (COMPLEX);
+		*strategy = COMPLEX;
 	else if (!ft_strncmp(arg, "--adaptive"))
-		return (ADAPTIVE);
+		*strategy = ADAPTIVE;
+	else if (!ft_strncmp(arg, "--bench"))
+		*strategy = BENCH;
 	else
-		return (DEFAULT);
+	{
+		*strategy = DEFAULT;
+		return (false);
+	}
+	return (true);
 }
 
 
@@ -37,8 +43,35 @@ t_strategy	strategy_selector(char *arg)
 int	main(int argc, char **argv)
 {
 	t_strategy		strategy;
+	t_node			*a;
+	t_node			*b;
+	
+/*
+ * **** PRIMERA COMPROBACIÓN ****
+ *      - nº de argumentos
+ *      - strategy validation
+ * 		- DEAFAULT debería ser un string con solo números, espacios y signos negativos
+ */
 
-	strategy = strategy_selector(argv[1]);
-	if (argc < 2 && strategy != DEFAULT))
+	if (argc < 2 || (argc == 2 && strat_select(&strategy, argv[1])))
 		return (print_error());
+	if (argc == 2 && strategy == DEFAULT)
+	{
+		argv = ps_split(argv[DEFAULT], ' ');
+		if (!argv)
+			return(print_error());
+	}
+
+
+
+nº of args
+
+1 - error
+
+> 1
+
+2 - solo si no hay strategy selector
+3 - si hay selector
+como saber si el selector es valido
+}
 	
