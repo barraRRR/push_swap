@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/05 10:47:28 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:59:23 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	print_error(void)
 	return (1);
 }
 
-bool	strat_selector(t_strategy *strategy, char *arg)
+bool	which_strategy(t_strategy *strategy, char *arg)
 {
 	if (!ft_strncmp(arg, "--simple"))
 		*strategy = SIMPLE;
@@ -50,10 +50,10 @@ int	main(int argc, char **argv)
  * **** PRIMERA COMPROBACIÓN ****
  *      - nº de argumentos
  *      - strategy validation
- * 		- DEAFAULT debería ser un string con solo números, espacios y signos negativos
+ * 		- DEAFAULT debería ser un string con solo números, espacios y signos negativos y positivos
  */
 
-	if (argc < 2 || (argc == 2 && strat_select(&strategy, argv[1])))
+	if (argc < 2 || (argc == 2 && which_strategy(&strategy, argv[1])))
 		return (print_error());
 	if (argc == 2 && strategy == DEFAULT)
 	{
@@ -62,6 +62,13 @@ int	main(int argc, char **argv)
 			return(print_error());
 	}
 
+
+./push_swap				//ERROR - Un argumento
+./push_swap --simple	//ERROR - Dos argumentos si uno es strategy
+./push_swap --simple "0 1 2 3 4"
+./push_swap --simple 0 1 2 3 4
+./push_swap 0 1 2 3 4
+./push_swap
 
 
 nº of args
