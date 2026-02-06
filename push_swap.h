@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/05 20:52:59 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/06 17:50:24 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ typedef struct s_lst
 char				**ps_split(char **argv);
 void				ft_putstr_fd(char *s, int fd);
 bool				ps_atoi(const char *str, int *value);
-bool				duplicate_values(t_lst *lst, int value);
 t_strategy			init_strategy(void);
-bool				validate_stategy(char *argv, t_strategy *strategy);
-
+int					ft_strcmp(char *s1, char *s2);
+bool				create_stack(char **argv, t_lst **node, t_strategy *strategy);
 
 #endif
