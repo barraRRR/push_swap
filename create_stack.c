@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 17:29:36 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/06 18:29:53 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 		{
 			if (!duplicate_values(*node, value))
 				return (false);
-			if (!ps_lstadd_back(node, value))				// comprobar que libero todo en caso de error
+			if (!ps_lstadd_back(node, value))
 				return (false);
 		}
 		else if (!validate_stategy(argv[i], strategy))
