@@ -36,9 +36,9 @@ typedef enum e_complexity {
 
 ```c
 typedef struct s_strategy {
-    t_complexity    complexity;
-    bool            is_defined; 	// True if a specific flag was provided
-    bool            bench_mode; 	// True if --bench flag is present
+    t_complexity    complex;
+    bool            defined; 	// True if a specific flag was provided
+    bool            bench; 	// True if --bench flag is present
 } t_strategy;
 ```
 
