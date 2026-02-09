@@ -6,41 +6,43 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/09 16:51:32 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/09 18:58:33 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_lst *a)
+void	swap_node(t_lst **n1, t_lst **n2)
 {
-	t_lst		*ptr;
+	t_lst		*tmp1_prev;
+	t_lst		*tmp1_next;
+	t_lst		*tmp2_prev;
+	t_lst		*tmp2_next;
 	t_lst		*tmp;
 
-	if (a && a->next)
-	{
-		tmp = a->next->next;
-		a->next->next = a;
-		a->next = tmp;
-		a->next->next->prev = a->prev;
+	tmp1_prev = (*n1)->prev;
+	tmp1_next = (*n1)->next;
+	tmp2_prev = (*n2)->prev;
+	tmp2_next = (*n2)->next;
+	tmp = *n1;
+	*n1 = *n2;
+	*n2 = tmp;
+	(*n1)->prev = tmp1_prev; 
+	(*n1)->next = tmp1_next; 
+	(*n2)->prev = tmp2_prev; 
+	(*n2)->next = tmp2_next; 
+}
 
-		
-	}
+void	sa(t_lst *a)
+{
+	if (a && a->next)
+		swap_node(a, a->next);
 }
 
 void	sb(t_lst *b)
 {
-	t_lst		*ptr;
-	t_lst		*tmp;
-
 	if (b && b->next)
-	{
-		ptr = b;
-		ptr = ptr->next;
-		tmp = b;
-		b = ptr;
-		ptr = tmp;
-	}
+		swap_node(b, b->next);
 }
 
 void	ss(t_lst *a, t_lst *b)
@@ -49,11 +51,7 @@ void	ss(t_lst *a, t_lst *b)
 	sb(b);
 }
 
-void	pb(t_lst *a, t_lst *b)
+void	pa(t_lst *a, t_lst *b)
 {
-	t_lst		*ptr;
-	t_lst		*tmp;
-
 	if (!b)
 		return ;
-	
