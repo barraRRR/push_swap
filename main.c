@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 17:49:46 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/09 19:19:02 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ t_strategy		init_strategy(void)
 int	main(int argc, char **argv)
 {
 	t_strategy		strategy;
-	t_lst			*a;
-	t_lst			*b;
+	t_lst			**a;
+	t_lst			**b;
 
 	if (argc == 1)
 		return (0);
@@ -81,9 +81,9 @@ int	main(int argc, char **argv)
 	strategy = init_strategy();
 	argv = ps_split(argv + 1);
 	if (!argv)
-		return (ps_exit(argv, &a, &b, 1));
-	if (!create_stack(argv, &a, &strategy))
-		return (ps_exit(argv, &a, &b, 1));
+		return (ps_exit(argv, a, b, 1));
+	if (!create_stack(argv, a, &strategy))
+		return (ps_exit(argv, a, b, 1));
 	
 	// *** TESTING ***
 
