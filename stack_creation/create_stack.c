@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:58:57 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:11:04 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,11 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 {
 	int			value;
 	int			i;
+	t_lst		*ptr;
 
 	value = 0;
 	i = 0;
-	while (argv[i])
+	while (argv && argv[i])
 	{
 		if (ps_atoi(argv[i], &value))
 		{
@@ -125,7 +126,10 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 			return (false);
 		i++;
 	}
-	strategy->total = ft_lstsize(*node);
-	strategy->tail_a = node[strategy->total - 1];
+	strategy->total = ft_lstsize(*node);			// estoy metiendo en esta función la gestión de size y tail_a
+	ptr = *node;
+	while (ptr->next)
+		ptr = ptr->next;
+	strategy->tail_a = ptr;
 	return (true);
 }

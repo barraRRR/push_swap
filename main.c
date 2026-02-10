@@ -6,14 +6,15 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:30:12 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:17:28 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-/*		*** EXIT FUNCTIONS ***
+/*
+ *		*** EXIT FUNCTIONS ***
  *		FT_LSTCLEAR() and PS_EXIT() free all data structures previously
  *		allocated and return the exit number given -- OJO INVESTIGAR COMO DEFINIR EXIT NUMBER
  */
@@ -29,7 +30,7 @@ static void	ft_lstclear(t_lst **lst)
 		*lst = (*lst)->next;
 		free(ptr);
 	}
-	*lst = NULL;
+	free(lst);
 }
 
 static int	ps_exit(char **split, t_lst **a, t_lst **b, int error)
@@ -55,7 +56,8 @@ static int	ps_exit(char **split, t_lst **a, t_lst **b, int error)
 	return (error);
 }
 
-/*		*** INIT_STRATEGY() ***
+/*
+ *		*** INIT_STRATEGY() ***
  *		Initializes the variables inside the struct STRATEGY
  */
 t_strategy		init_strategy(void)
@@ -79,8 +81,12 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	a = NULL;
-	b = NULL;
+	a = malloc(sizeof(t_lst *));
+	b = malloc(sizeof(t_lst *));
+	if (!a || !b)
+		return (ps_exit(argv, a, b, 1));
+	*a = NULL;
+	*b = NULL;
 	strategy = init_strategy();
 	argv = ps_split(argv + 1);
 	if (!argv)
@@ -88,52 +94,47 @@ int	main(int argc, char **argv)
 	if (!create_stack(argv, a, &strategy))
 		return (ps_exit(argv, a, b, 1));
 	
-	// *** TESTING ***
+	testing(a, b, &strategy);
 
-	t_lst *tmp = *a;
-	while (tmp)
-	{
-		printf("%i\n", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("\nstrategy and bench\n");
-	printf("%i\n", strategy.bench);
-	printf("%i\n", strategy.complex);
-
-	// *** *** ***
 	
 	return (ps_exit(argv, a, b, 0));	
 }
 
+void	testing(t_lst **a, t_lst **b, t_strategy *strategy)
+{
+	t_lst		*tmpa;
+	t_lst		*tmpb;
 
-		
+	printf("\n*** TESTING ***\n\n");
+	printf("_Columna A - Original_\n");
+	tmpa = *a;
+	while (tmpa)
+	{
+		printf("%i\n", tmpa->value);
+		tmpa = tmpa->next;
+	}
+	printf("\n*** FUGAZZI ***\n");
 	
-/*
- * **** SEGUNDA COMPROBACIÓN ****
- *      - procesar argv en un ** con todos los bloques de información
- * 		- comprobar validez
- * 			- ningún bloque se repite
- * 			- cero o una única estrategia
- * 			- comprobar bench
- * 			- comprobar validez números
- */
+	
+	pb(a, b, &strategy->tail_b);
+	pb(a, b, &strategy->tail_b);
+	ra(a, &strategy->tail_a);
+	rrr(a, b, &strategy->tail_a, &strategy->tail_b);
+	sa(a);
 
-
-/*
-	// *** TESTING SPLIT ***
-	int				i;
-	i = 0;
-	while (argv[i])
-		printf("%s\n", argv[i++]);
-	free_total(argv);
-	return (1);
-*/
-/*
-./push_swap								//ERROR - Un argumento
-./push_swap --simple					//ERROR - Dos argumentos si uno es strategy
-./push_swap --palabra 1x 2frg 3 4		//ERROR - Dos argumentos y strings que no son números
-./push_swap --simple "0 1 2 3 4"
-./push_swap --simple 0 1 2 3 4
-./push_swap --simple "0 1 2 3 4" "5 6 7 8" "9 10 11 12"
-./push_swap
-*/
+	
+	printf("_Columna A - Modificada_\n");
+	tmpa = *a;
+	while (tmpa)
+	{
+		printf("%i\n", tmpa->value);
+		tmpa = tmpa->next;
+	}
+	printf("_Columna B - Modificada_\n");
+	tmpb = *b;
+	while (tmpb)
+	{
+		printf("%i\n", tmpb->value);
+		tmpb = tmpb->next;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:00:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:19:32 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:15:48 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ static void	reverse_rotate(t_lst **s, t_lst **tail)
 	if (!*s || !(*s)->next)
 		return ;
 	ptr = *tail;
-	*tail = (*tail)->prev;
-	(*tail)->next = NULL;
-	ptr->next = *s;
 	(*s)->prev = ptr;
+	ptr->next = *s;
 	*s = ptr;
 	(*s)->prev = NULL;
+	*tail = (*tail)->prev;
+	(*tail)->next = NULL;
+
 }
 
 void	rra(t_lst **a, t_lst **tail_a)

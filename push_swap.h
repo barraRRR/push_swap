@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:23:49 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:31:39 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,9 @@ void				rr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b);
 void				rra(t_lst **a, t_lst **tail_a);
 void				rrb(t_lst **b, t_lst **tail_b);
 void				rrr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b);
+
+//		Eliminar al final
+void				testing(t_lst **a, t_lst **b, t_strategy *strategy);
+
 
 #endif

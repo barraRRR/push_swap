@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:51:44 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:24:18 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:06:40 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ static bool	extract_strings(char **argv, char **split)
 		}
 		argv++;
 	}
+	split[i] = NULL;
 	return (true);
 }
 
@@ -113,7 +114,7 @@ char	**ps_split(char **argv)
 {
 	char	**split;
 
-	split = malloc(sizeof(char *) * count_blocks(argv) + 1);
+	split = malloc(sizeof(char *) * (count_blocks(argv) + 1));
 	if (!split)
 		return (NULL);
 	if (!extract_strings(argv, split))

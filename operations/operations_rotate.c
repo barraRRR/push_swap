@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:19:41 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:55:57 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 static void	rotate(t_lst **s, t_lst **tail)
 {
-	t_lst		*ptr;
 	t_lst		*tmp;
 
 	if (!*s || !(*s)->next)
 		return ;
-	ptr = *tail;
 	tmp = *s;
 	*s = (*s)->next;
 	(*s)->prev = NULL;
-	ptr->next = tmp;
-	tmp->prev = ptr;
+	(*tail)->next = tmp;
+	tmp->prev = *tail;
 	tmp->next = NULL;
 	*tail = tmp;
 }
