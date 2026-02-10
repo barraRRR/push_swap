@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/09 19:19:02 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:20:06 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ t_strategy		init_strategy(void)
 	strategy.complex = DEFAULT;
 	strategy.defined = false;
 	strategy.bench = false;
+	strategy.total = 0;
+	strategy.tail_a = NULL;
+	strategy.tail_b = NULL;
 	return (strategy);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 17:50:24 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:26:16 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_strategy
 	t_complexity		complex;
 	bool				defined;
 	bool				bench;
+	int					total;
+	t_lst				*tail_a;
+	t_lst				*tail_b;
 }	t_strategy;
 
 typedef struct s_lst
@@ -53,5 +56,6 @@ bool				ps_atoi(const char *str, int *value);
 t_strategy			init_strategy(void);
 int					ft_strcmp(char *s1, char *s2);
 bool				create_stack(char **argv, t_lst **node, t_strategy *strategy);
+int					ft_lstsize(t_lst *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 18:29:53 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:19:51 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,7 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 			return (false);
 		i++;
 	}
+	strategy->total = ft_lstsize(*node);
+	strategy->tail_a = node[strategy->total - 1];
 	return (true);
 }
