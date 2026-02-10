@@ -6,23 +6,28 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 12:19:51 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:58:57 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
  *	*** DUPLICATES ***
  *	Compueba que no haya datos duplicados en la lista
  */
-static bool	duplicate_values(t_lst *lst, int value)
+static bool	duplicate_values(t_lst **lst, int value)
 {
-	while (lst)
+	t_lst		*ptr;
+
+	if (!lst || !*lst)
+		return (true);
+	ptr = *lst;
+	while (ptr)
 	{
-		if (lst->value == value)
+		if (ptr->value == value)
 			return (false);
-		lst = lst->next;
+		ptr = ptr->next;
 	}
 	return (true);
 }
@@ -78,7 +83,12 @@ static bool	ps_lstadd_back(t_lst **lst, int value)
 	t_lst		*new;
 
 	if (!lst)
-		return (false);
+	{
+		lst = malloc(sizeof(t_lst *));
+		if (!lst)
+			return (false);
+		*lst = NULL;
+	}
 	new = ps_lstnew(value);
 	if (!new)
 		return (false);
@@ -106,7 +116,7 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 	{
 		if (ps_atoi(argv[i], &value))
 		{
-			if (!duplicate_values(*node, value))
+			if (!duplicate_values(node, value))
 				return (false);
 			if (!ps_lstadd_back(node, value))
 				return (false);

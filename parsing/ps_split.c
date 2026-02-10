@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:51:44 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 18:29:52 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:24:18 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
  *		tiene que handlear -> ./push_swap "  20 32 --simple 0 1 2 3 4 "   "5 6 7 8" "9 --bench 10 11 12" 13 14 15

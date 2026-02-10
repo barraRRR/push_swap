@@ -1,52 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 18:18:17 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:24:32 by jbarreir         ###   ########.fr       */
+/*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
+/*   Updated: 2026/02/10 15:19:38 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap.h"		// ojo
 
-void	ft_putstr_fd(char *s, int fd)
+static void	push(t_lst **a, t_lst **b, t_lst **tail)
 {
-	size_t		len;
+	t_lst			*tmpb;
 
-	if (!s)
+	if (!b || !*b)
 		return ;
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
+	tmpb = *b;
+	*b = (*b)->next;
+	if (*b)
+		(*b)->prev = NULL;
+	tmpb->next = *a;
+	if (*a)
+		(*a)->prev = tmpb;
+	*a = tmpb;
+	(*a)->prev = NULL;
+	if (!(*a)->next)
+		*tail = *a; 
 }
 
-int	ft_strcmp(char *s1, char *s2)
+void	pa(t_lst **a, t_lst **b, t_lst **tail_a)
 {
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	push(a, b, tail_a);
 }
 
-int	ft_lstsize(t_lst *lst)
+void	pb(t_lst **b, t_lst **a, t_lst **tail_b)
 {
-	int		len;
-
-	if (!lst)
-		return (0);
-	len = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		len++;
-	}
-	return (len);
+	push(b, a, tail_b);
 }

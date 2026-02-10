@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 12:29:35 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/06 17:20:33 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:24:13 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*
  * 	*** ATOI MODIFICADO ***

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 12:20:06 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:30:12 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	
 	// *** TESTING ***
 
-	t_lst *tmp = a;
+	t_lst *tmp = *a;
 	while (tmp)
 	{
 		printf("%i\n", tmp->value);
@@ -102,7 +102,7 @@ int	main(int argc, char **argv)
 
 	// *** *** ***
 	
-	return (ps_exit(argv, &a, &b, 0));	
+	return (ps_exit(argv, a, b, 0));	
 }
 
 
