@@ -6,11 +6,12 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:32:59 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 10:34:25 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:36:14 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 void	testing(t_lst **a, t_lst **b, t_strategy *strategy)
 {
