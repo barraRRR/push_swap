@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:18:17 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:24:32 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 15:51:23 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,15 @@ int	ft_lstsize(t_lst *lst)
 		len++;
 	}
 	return (len);
+}
+
+bool	is_sorted(t_lst *n)
+{
+	while (n->next)
+	{
+		if (n->value > n->next->value)
+			return (false);
+		n = n->next;
+	}
+	return (true);
 }
