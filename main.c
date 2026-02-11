@@ -6,12 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 10:33:33 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 15:15:54 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /*
  *		*** EXIT FUNCTIONS ***
@@ -67,6 +66,7 @@ t_strategy		init_strategy(void)
 	strategy.complex = DEFAULT;
 	strategy.defined = false;
 	strategy.bench = false;
+	strategy.disorder = 0.0;
 	strategy.total = 0;
 	strategy.tail_a = NULL;
 	strategy.tail_b = NULL;
