@@ -6,11 +6,13 @@
 /*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:22:39 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/11 17:31:14 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:47:57 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// A modificar en función de la implementación de los algoritmos en sí
 
 void algo_selector(t_lst **a, t_lst **tail_a)
 {
