@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 19:21:03 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 09:49:48 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ int	main(int argc, char **argv)
 	t_strategy		strategy;
 	t_lst			**a;
 	t_lst			**b;
-	t_lst			**a;
-	t_lst			**b;
 
 	if (argc == 1)
 		return (0);
@@ -95,10 +93,18 @@ int	main(int argc, char **argv)
 		return (ps_exit(argv, a, b, 1));
 	if (!create_stack(argv, a, &strategy))
 		return (ps_exit(argv, a, b, 1));
-	
+	/*
+	 *		Por ahora dejo la inicializacón del disorder aquí, pero ya que hay
+	 *		una función de INIT_STRATEGY creo que debería handlearse ahí de alguna manera
+	 */
+	strategy.disorder = compute_disorder(*a);
+
+	//		*** TESTING ***
+
 	testing(a, b, &strategy);
 
-	
+	//		***************
+
 	return (ps_exit(argv, a, b, 0));	
 }
 
@@ -108,6 +114,7 @@ void	testing(t_lst **a, t_lst **b, t_strategy *strategy)
 	t_lst		*tmpb;
 
 	printf("\n*** TESTING ***\n\n");
+	printf("%f\n\n", strategy->disorder);
 	printf("_Columna A - Original_\n");
 	tmpa = *a;
 	while (tmpa)
@@ -120,9 +127,9 @@ void	testing(t_lst **a, t_lst **b, t_strategy *strategy)
 	
 	pb(a, b, &strategy->tail_b);
 	pb(a, b, &strategy->tail_b);
-	ra(a, &strategy->tail_a);
+	ra(a, &strategy->tail_a, true);
 	rrr(a, b, &strategy->tail_a, &strategy->tail_b);
-	sa(a);
+	sa(a, true);
 
 	
 	printf("_Columna A - Modificada_\n");

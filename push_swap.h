@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 18:31:39 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 09:48:57 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_strategy
 	bool				defined;
 	bool				bench;
 	int					total;
+	float				disorder;								// branch disorder_metric
 	t_lst				*tail_a;
 	t_lst				*tail_b;
 }	t_strategy;
@@ -57,22 +58,22 @@ t_strategy			init_strategy(void);
 int					ft_strcmp(char *s1, char *s2);
 bool				create_stack(char **argv, t_lst **node, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
+float				compute_disorder(t_lst *a);					// branch disorder_metric
 
 // ****** OPERATIONS ******
-void				sa(t_lst **a);
-void				sb(t_lst **b);
+void				sa(t_lst **a, bool print);					// branch disorder_metric - añade bool
+void				sb(t_lst **b, bool print);					// branch disorder_metric - añade bool
 void				ss(t_lst **a, t_lst **b);
 void				pa(t_lst **a, t_lst **b, t_lst **tail_a);
 void				pb(t_lst **b, t_lst **a, t_lst **tail_b);
-void				ra(t_lst **a, t_lst **tail_a);
-void				rb(t_lst **b, t_lst **tail_b);
+void				ra(t_lst **a, t_lst **tail_a, bool print);	// branch disorder_metric - añade bool
+void				rb(t_lst **b, t_lst **tail_b, bool print);	// branch disorder_metric - añade bool
 void				rr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b);
-void				rra(t_lst **a, t_lst **tail_a);
-void				rrb(t_lst **b, t_lst **tail_b);
+void				rra(t_lst **a, t_lst **tail_a, bool print);	// branch disorder_metric - añade bool
+void				rrb(t_lst **b, t_lst **tail_b, bool print);	// branch disorder_metric - añade bool
 void				rrr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b);
 
 //		Eliminar al final
 void				testing(t_lst **a, t_lst **b, t_strategy *strategy);
-
 
 #endif
