@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 18:41:12 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 07:49:39 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	pa(t_lst **a, t_lst **b, t_lst **tail_a)
 	if (!b || !*b)
 		return ;
 	push(a, b, tail_a);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_lst **a, t_lst **b, t_lst **tail_b)
@@ -41,4 +42,5 @@ void	pb(t_lst **a, t_lst **b, t_lst **tail_b)
 	if (!a || !*a)
 		return ;
 	push(b, a, tail_b);
+	ft_putstr_fd("pb\n", 1);
 }

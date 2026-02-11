@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 18:55:57 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 07:50:50 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ static void	rotate(t_lst **s, t_lst **tail)
 void	ra(t_lst **a, t_lst **tail_a)
 {
 	rotate(a, tail_a);
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_lst **b, t_lst **tail_b)
 {
 	rotate(b, tail_b);
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b)
 {
 	ra(a, tail_a);
 	rb(b, tail_b);
+	ft_putstr_fd("rr\n", 1);
 }
