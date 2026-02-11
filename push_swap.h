@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 15:51:23 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/11 18:00:34 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ bool				create_stack(char **argv, t_lst **node, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
 
 // ****** ALGORITHM ******
+int					find_highest(t_lst *n);
 float				compute_disorder(t_lst *a);					// branch disorder_metric
 bool				is_sorted(t_lst *n);						// branch is_sorted
 
