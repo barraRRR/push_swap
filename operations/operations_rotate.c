@@ -6,44 +6,44 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 09:44:29 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 11:52:30 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"		// ojo
 
-static void	rotate(t_lst **s, t_lst **tail)
+static void	rotate(t_stack *s)
 {
 	t_lst		*tmp;
 
-	if (!*s || !(*s)->next)
+	if (!s->head || !s->head->next)
 		return ;
-	tmp = *s;
-	*s = (*s)->next;
-	(*s)->prev = NULL;
-	(*tail)->next = tmp;
-	tmp->prev = *tail;
+	tmp = s->head;
+	s->head = tmp->next;
+	s->head->prev = NULL;
 	tmp->next = NULL;
-	*tail = tmp;
+	tmp->prev = s->tail;
+	s->tail->next = tmp;
+	s->tail = tmp;
 }
 
-void	ra(t_lst **a, t_lst **tail_a, bool print)
+void	ra(t_stack *a, bool print)
 {
-	rotate(a, tail_a);
+	rotate(a);
 	if (print)
 		ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_lst **b, t_lst **tail_b, bool print)
+void	rb(t_stack *b, bool print)
 {
-	rotate(b, tail_b);
+	rotate(b);
 	if (print)
 		ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_lst **a, t_lst **b, t_lst **tail_a, t_lst **tail_b)
+void	rr(t_stack *a, t_stack *b)
 {
-	ra(a, tail_a, false);
-	rb(b, tail_b, false);
+	ra(a, false);
+	rb(b, false);
 	ft_putstr_fd("rr\n", 1);
 }
