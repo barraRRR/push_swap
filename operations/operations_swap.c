@@ -6,38 +6,38 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 09:48:28 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 10:42:03 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"	//ojo
 
-void	swap(t_lst **s)
+static void	swap(t_stack *s)
 {
 	int			tmp;
 	
-	tmp = (*s)->value;
-	(*s)->value = (*s)->next->value;
-	(*s)->next->value = tmp;
+	tmp = s->head->value;
+	s->head->value = s->head->next->value;
+	s->head->next->value = tmp;
 }
 
-void	sa(t_lst **a, bool print)
+void	sa(t_stack *a, bool print)
 {
-	if (*a && (*a)->next)
+	if (a->head && a->head->next)
 		swap(a);
 	if (print)
 		ft_putstr_fd("sa\n", 1);
 }
 
-void	sb(t_lst **b, bool print)
+void	sb(t_stack *b, bool print)
 {
-	if (*b && (*b)->next)
+	if (b->head && b->head->next)
 		swap(b);
 	if (print)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_lst **a, t_lst **b)
+void	ss(t_stack *a, t_stack *b)
 {
 	sa(a, false);
 	sb(b, false);

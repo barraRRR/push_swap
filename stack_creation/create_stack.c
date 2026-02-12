@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 18:11:04 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 11:56:27 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@
  *	*** DUPLICATES ***
  *	Compueba que no haya datos duplicados en la lista
  */
-static bool	duplicate_values(t_lst **lst, int value)
+static bool	duplicate_values(t_lst *lst, int value)
 {
-	t_lst		*ptr;
-
-	if (!lst || !*lst)
+	if (!lst)
 		return (true);
-	ptr = *lst;
-	while (ptr)
+	while (lst)
 	{
-		if (ptr->value == value)
+		if (lst->value == value)
 			return (false);
-		ptr = ptr->next;
+		lst = lst->next;
 	}
 	return (true);
 }
@@ -77,39 +74,32 @@ static t_lst	*ps_lstnew(int value)
 	return (new);
 }
 
-static bool	ps_lstadd_back(t_lst **lst, int value)
+static bool	ps_lstadd_back(t_stack *a, int value)
 {
 	t_lst		*tmp;
 	t_lst		*new;
 
-	if (!lst)
-	{
-		lst = malloc(sizeof(t_lst *));
-		if (!lst)
-			return (false);
-		*lst = NULL;
-	}
 	new = ps_lstnew(value);
 	if (!new)
 		return (false);
-	if (!*lst)
+	if (!(a->head))
 	{
-		*lst = new;
+		a->head = new;
 		return (true);
 	}
-	tmp = *lst;
+	tmp = a->head;
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = new;
 	new->prev = tmp;
+	a->tail = new;
 	return (true);
 }
 
-bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
+bool	create_stack(char **argv, t_stack *a, t_strategy *strategy)
 {
 	int			value;
 	int			i;
-	t_lst		*ptr;
 
 	value = 0;
 	i = 0;
@@ -117,19 +107,15 @@ bool	create_stack(char **argv, t_lst **node, t_strategy *strategy)
 	{
 		if (ps_atoi(argv[i], &value))
 		{
-			if (!duplicate_values(node, value))
+			if (!duplicate_values(a->head, value))
 				return (false);
-			if (!ps_lstadd_back(node, value))
+			if (!ps_lstadd_back(a, value))
 				return (false);
 		}
 		else if (!validate_stategy(argv[i], strategy))
 			return (false);
 		i++;
 	}
-	strategy->total = ft_lstsize(*node);			// estoy metiendo en esta función la gestión de size y tail_a
-	ptr = *node;
-	while (ptr->next)
-		ptr = ptr->next;
-	strategy->tail_a = ptr;
+	strategy->total = ft_lstsize(a->head);
 	return (true);
 }
