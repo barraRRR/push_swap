@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 11:09:03 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 15:08:35 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 static void	push(t_stack *a, t_stack *b)
 {
-	t_lst			*tmpb;
+	t_lst			*ptr;
 
-	tmpb = b->head;
+	ptr = b->head;
 	b->head = b->head->next;
 	if (b->head)
 		b->head->prev = NULL;
-	tmpb->next = a->head;
+	else
+		b->tail = NULL;
+	ptr->next = a->head;
 	if (a->head)
-		a->head->prev = tmpb;
-	a->head = tmpb;
+		a->head->prev = ptr;
+	a->head = ptr;
 	a->head->prev = NULL;
 	if (!a->head->next)
 		a->tail = a->head; 
