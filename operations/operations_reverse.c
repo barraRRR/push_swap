@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:00:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 11:12:29 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 18:45:36 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	reverse_rotate(t_stack *s)
 	if (!s->head || !s->head->next)
 		return ;
 	ptr = s->tail;
-	s->head->prev = ptr;
+	s->tail = ptr->prev;
+	s->tail->next = NULL;
 	ptr->next = s->head;
+	s->head->prev = ptr;
 	s->head = ptr;
 	s->head->prev = NULL;
-	s->tail = s->tail->prev;
-	s->tail->next = NULL;
 }
 
 void	rra(t_stack *a, bool print)
