@@ -6,41 +6,41 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 07:49:39 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 11:09:03 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"		// ojo
 
-static void	push(t_lst **a, t_lst **b, t_lst **tail)
+static void	push(t_stack *a, t_stack *b)
 {
 	t_lst			*tmpb;
 
-	tmpb = *b;
-	*b = (*b)->next;
-	if (*b)
-		(*b)->prev = NULL;
-	tmpb->next = *a;
-	if (*a)
-		(*a)->prev = tmpb;
-	*a = tmpb;
-	(*a)->prev = NULL;
-	if (!(*a)->next)
-		*tail = *a; 
+	tmpb = b->head;
+	b->head = b->head->next;
+	if (b->head)
+		b->head->prev = NULL;
+	tmpb->next = a->head;
+	if (a->head)
+		a->head->prev = tmpb;
+	a->head = tmpb;
+	a->head->prev = NULL;
+	if (!a->head->next)
+		a->tail = a->head; 
 }
 
-void	pa(t_lst **a, t_lst **b, t_lst **tail_a)
+void	pa(t_stack *a, t_stack *b)
 {
-	if (!b || !*b)
+	if (!b->head)
 		return ;
-	push(a, b, tail_a);
+	push(a, b);
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_lst **a, t_lst **b, t_lst **tail_b)
+void	pb(t_stack *a, t_stack *b)
 {
-	if (!a || !*a)
+	if (!a->head)
 		return ;
-	push(b, a, tail_b);
+	push(b, a);
 	ft_putstr_fd("pb\n", 1);
 }
