@@ -6,27 +6,30 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:56:22 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 18:13:16 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/12 16:17:45 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	bubble_sort(t_lst **a, t_lst **b, t_strategy *strategy)
+static void	move_to_top(t_stack *a, int low)
 {
-	int				i;
+	sa(a, true);
+	if (a->head->value != low)
+		ra(a, true);
+}
 
-	i = 0;
-	while (*a)
+void	selection_sort(t_stack *a, t_stack *b)
+{
+	int			low;
+
+	while (a->head)
 	{
-		while (i < (strategy->total - 1))
-		{
-			if ((*a)->value > (*a)->next->value)
-				sa(a, true);
-			ra(a, &strategy->tail_a, true);
-		}
-		pb(b, a, &strategy->tail_b);
+		low = find_lowest(a->head);
+		while (a->head->value != low)
+			move_to_top(a, low);
+		pb(a, b);
 	}
-	while (*b)
-		pa(a, b, &strategy->tail_a);
+	while (b->head)
+		pa(a, b);
 }

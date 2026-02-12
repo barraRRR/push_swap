@@ -6,11 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/02/11 18:00:34 by jbarreir         ###   ########.fr       */
-=======
-/*   Updated: 2026/02/12 11:19:38 by jbarreir         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2026/02/12 16:17:35 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +18,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdio.h>						// acordarse de quitar
 
 // ****** DEFINES ******
 
@@ -43,10 +40,6 @@ typedef struct s_lst
 	struct s_lst		*next;
 }	t_lst;
 
-/*
- *		Nueva structura de datos para agrupar los nodos head y tail
- *		en el mismo lugar.
- */
 typedef struct	s_stack
 {
 	t_lst				*head;
@@ -72,14 +65,11 @@ bool				create_stack(char **argv, t_stack *a, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
 
 // ****** ALGORITHM ******
-<<<<<<< HEAD
 int					find_highest(t_lst *n);
-float				compute_disorder(t_lst *a);					// branch disorder_metric
-bool				is_sorted(t_lst *n);						// branch is_sorted
-=======
+int					find_lowest(t_lst *n);
 float				compute_disorder(t_lst *a);
-bool				is_sorted(t_lst *n);
->>>>>>> main
+void				tiny_sort(t_stack *a);
+void				selection_sort(t_stack *a, t_stack *b);
 
 // ****** OPERATIONS ******											// actualizada data struct
 void				sa(t_stack *a, bool print);					
