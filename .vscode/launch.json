@@ -6,12 +6,12 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap", // <--- La ruta a tu ejecutable
-            "args": ["42 69 23 15"],
+            "args": [22 77 78 3 73 60 89 80 6 81 52 68 9 94 35 34 69 90 17 67 24 83 76 85 42 15 39 4 38 66 1 79 37 28 49 84 86 53 8 64 61 5 92 75 97 100 59 26 51 58 20 93 44 12 63 10 48 65 47 21 54 70 27 16 13 33 98 30 19 11 29 46 96 45 55 31 25 87 56 88 14 72 23 62 32 91 2 95 18 74 40 99 57 36 43 50 82 7 71 41],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb", // O 'lldb' si estás en Mac
+            "MIMode": "lldb", // O 'lldb' si estás en Mac
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

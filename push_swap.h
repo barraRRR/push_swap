@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 11:59:58 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:52:11 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef enum e_complexity
 typedef struct s_lst
 {
 	int					value;
+	unsigned int		index;
 	struct s_lst		*prev;
 	struct s_lst		*next;
 }	t_lst;
@@ -55,24 +56,32 @@ typedef struct s_strategy
 	float				disorder;
 }	t_strategy;
 
-// ****** PROTOTYPES ******
+// ****** GENERIC PROTOTYPES ******
 char				**ps_split(char **argv);
 void				ft_putstr_fd(char *s, int fd);
 bool				ps_atoi(const char *str, int *value);
 void				init_data(t_strategy *strategy, t_stack *a, t_stack *b);
 int					ft_strcmp(char *s1, char *s2);
+int					ft_sqrt(int n);
 bool				create_stack(char **argv, t_stack *a, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
 
-// ****** ALGORITHM ******
+// ****** ALGORITHM UTILS ******
 int					find_highest(t_lst *n);
-int					find_lowest(t_lst *n, int *low_index);
+int					find_lowest(t_lst *n);
+int					find_next_lowest(t_lst *n, int prev_low);
+int 				find_low_index(t_lst *n, int low);
+void				index_list(t_stack *s, int size);
+bool				is_target_on_top(t_lst *n, int target, unsigned int size);
 float				compute_disorder(t_lst *a);
+
+// ****** ALGORITHM STRATEGIES ******
 void				tiny_sort(t_stack *a);
 void				selection_sort(t_stack *a, t_stack *b, t_strategy *strategy);
+void				chunk_sort(t_stack *a, t_stack *b, t_strategy *strategy);
 
-// ****** OPERATIONS ******
-void				sa(t_stack *a, bool print);					
+	// ****** OPERATIONS ******
+void				sa(t_stack *a, bool print);
 void				sb(t_stack *b, bool print);					
 void				ss(t_stack *a, t_stack *b);
 void				pa(t_stack *a, t_stack *b);	

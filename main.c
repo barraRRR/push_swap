@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 14:45:34 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 18:51:56 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ int	main(int argc, char **argv)
 
 	//		*** TESTING ***
 
-	testing(&a, &b, &strategy);
+	//testing(&a, &b, &strategy);
+	chunk_sort(&a, &b, &strategy);
 
 	//		***************
 
