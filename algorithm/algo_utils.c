@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:59:09 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 16:12:39 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:57:13 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,26 @@ int	find_highest(t_lst *n)
 	return (high);
 }
 
-int	find_lowest(t_lst *n)
+/*
+ *		Encuentra el número mínimo en el stack y su posición (low_index)
+ */
+int	find_lowest(t_lst *n, int *low_index)
 {
 	int			low;
+	int			i;
 
 	low = n->value;
+	i = 1;
+	*low_index = i;
 	while (n)
 	{
 		if (n->value < low)
+		{
 			low = n->value;
+			*low_index = i;
+		}
 		n = n->next;
+		i++;
 	}
 	return (low);
 }

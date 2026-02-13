@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:32:59 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 18:52:08 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:55:45 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	testing(t_stack *a, t_stack *b, t_strategy *strategy)
 
 	//print_stacks(a, b);	
 	
-	selection_sort(a, b);
+	selection_sort(a, b, strategy);
 	
 	//print_stacks(a, b);
 }
