@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:32:59 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 17:47:21 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 18:31:21 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	testing(t_stack *a, t_stack *b, t_strategy *strategy)
 	print_elements(strategy->total);
 	print_disorder(strategy->disorder);
 
-	print_stacks(a, b);	
-	
-	selection_sort(a, b, strategy);
-	
-	//print_stacks(a, b);
+	print_stacks(a, b);
+
+	chunk_sort(a, b, strategy);
+
+	print_stacks(a, b);
 }

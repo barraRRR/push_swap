@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:59:09 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 17:34:23 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:49:31 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,5 @@ bool	is_target_on_top(t_lst *n, int target, unsigned int size)
 			i++;
 		}
 	}
+	return (true);
 }

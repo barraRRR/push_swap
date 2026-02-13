@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 17:38:06 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:52:11 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,10 @@ float				compute_disorder(t_lst *a);
 // ****** ALGORITHM STRATEGIES ******
 void				tiny_sort(t_stack *a);
 void				selection_sort(t_stack *a, t_stack *b, t_strategy *strategy);
+void				chunk_sort(t_stack *a, t_stack *b, t_strategy *strategy);
 
-// ****** OPERATIONS ******
-void				sa(t_stack *a, bool print);					
+	// ****** OPERATIONS ******
+void				sa(t_stack *a, bool print);
 void				sb(t_stack *b, bool print);					
 void				ss(t_stack *a, t_stack *b);
 void				pa(t_stack *a, t_stack *b);	
