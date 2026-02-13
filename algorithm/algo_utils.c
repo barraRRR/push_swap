@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:59:09 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 15:42:21 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:34:23 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,3 +95,23 @@ void	index_list(t_stack *s, int size)
 	}
 }
 
+bool	is_target_on_top(t_lst *n, int target, unsigned int size)
+{
+	unsigned int		i;
+	unsigned int		pos;
+
+	i = 0;
+	pos = (size - 1) / 2;
+	while (n)
+	{
+		if (n->value == target && i <= pos)
+			return (true);
+		else if (n->value == target && i > pos)
+			return (false);
+		else
+		{
+			n = n->next;
+			i++;
+		}
+	}
+}

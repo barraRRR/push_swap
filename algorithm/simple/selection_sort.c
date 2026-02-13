@@ -6,22 +6,22 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:56:22 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 15:17:47 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 16:07:45 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static void	move_to_top(t_stack *a, int low)
+static void	move_to_top(t_stack *a, int target)
 {
-	while (a->head->value != low)
+	while (a->head->value != target)
 		ra(a, true);
 }
 
-static void	move_from_bottom(t_stack *a, int low)
+static void	move_from_bottom(t_stack *a, int target)
 {
 	
-	while (a->tail->value != low)
+	while (a->tail->value != target)
 		rra(a, true);
 	rra(a, true);
 }

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 15:48:08 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:38:06 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void				ft_putstr_fd(char *s, int fd);
 bool				ps_atoi(const char *str, int *value);
 void				init_data(t_strategy *strategy, t_stack *a, t_stack *b);
 int					ft_strcmp(char *s1, char *s2);
+int					ft_sqrt(int n);
 bool				create_stack(char **argv, t_stack *a, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
 
@@ -71,6 +72,7 @@ int					find_lowest(t_lst *n);
 int					find_next_lowest(t_lst *n, int prev_low);
 int 				find_low_index(t_lst *n, int low);
 void				index_list(t_stack *s, int size);
+bool				is_target_on_top(t_lst *n, int target, unsigned int size);
 float				compute_disorder(t_lst *a);
 
 // ****** ALGORITHM STRATEGIES ******

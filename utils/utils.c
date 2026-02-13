@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:18:17 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/11 15:51:23 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:38:17 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,20 @@ bool	is_sorted(t_lst *n)
 		n = n->next;
 	}
 	return (true);
+}
+
+int ft_sqrt(int n)
+{
+	int sq;
+
+	sq = 0;
+	if (n <= 0)
+		return (0);
+	while (n != (sq * sq))
+	{
+		if ((sq * sq) > n)
+			return (0);
+		sq++;
+	}
+	return (sq);
 }
