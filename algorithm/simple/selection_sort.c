@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 14:56:22 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 11:56:02 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 15:17:47 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ void	selection_sort(t_stack *a, t_stack *b, t_strategy *strategy)
 	size = strategy->total;
 	while (a->head->next)
 	{
-		low = find_lowest(a->head, &i);
-		if (i <= (size / 2))
+		low = find_lowest(a->head);
+		i = find_low_index(a->head, low);
+		if (i <= ((size - 1) / 2))				// doble checkear esya operacion matematica, que no he probado con el - 1
 			move_to_top(a, low);
 		else
 			move_from_bottom(a, low);

@@ -6,12 +6,12 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap", // <--- La ruta a tu ejecutable
-            "args": ["42 69 23 15"],
+            "args": [4 3 7 2 1],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb", // O 'lldb' si estás en Mac
+            "MIMode": "lldb", // O 'lldb' si estás en Mac
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
