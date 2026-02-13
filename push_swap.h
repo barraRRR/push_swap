@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 11:59:58 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:38:14 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_lst
 typedef struct	s_stack
 {
 	t_lst				*head;
+	unsigned int		index;				// nuevo index para los algoritmos
 	t_lst				*tail;
 }	t_stack;
 

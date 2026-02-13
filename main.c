@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 14:45:34 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:39:32 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ void		init_data(t_strategy *strategy, t_stack *a, t_stack *b)
 	strategy->total = 0;
 	strategy->disorder = 0.0;
 	a->head = NULL;
+	a->index = 0;
 	a->tail = NULL;
 	b->head = NULL;
+	b->index = 0;
 	b->tail = NULL;
 }
 

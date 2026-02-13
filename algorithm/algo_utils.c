@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:59:09 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 11:57:13 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:49:45 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,26 @@ int	find_lowest(t_lst *n, int *low_index)
 	}
 	return (low);
 }
+
+int	find_next_lowest(t_lst *n, int prev_low, int *prev_low_index)
+{
+	int			next_low;
+
+	while (n)
+	{
+		if (n->value < next_low && n->value)
+		{
+			low = n->value;
+			*prev_low_index = i;
+		}
+		n = n->next;
+		i++;
+	}
+	return (low);
+
+
+void	index_list(t_stack *s, int size)
+{
+	int				low;
+
+	low = find_lowest;
