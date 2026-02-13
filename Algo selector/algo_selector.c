@@ -6,7 +6,7 @@
 /*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:22:39 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/11 18:47:57 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/13 18:34:06 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void algo_selector(t_lst **a, t_lst **tail_a)
 
 	disorder = compute_disorder(a);
 	if (disorder < 0.2)
-		low(a, tail_a);
+		simple(a, tail_a);
 	else if (0.2 <= disorder && disorder < 0.5)
 		medium(a, tail_a);
 	else
-		high(a, tail_a);
+		complex(a, tail_a);
 	return;
 }
