@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*   sandglass_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 13:12:12 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/14 11:03:27 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/14 11:43:01 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,36 +37,53 @@ static void push_chunk(t_stack *a, t_stack *b, int chunk_size)
 		rb(b, true);
 }
 
-static void chunk_to_b(t_stack *a, t_stack *b, int size, int chunk_size)
+static bool	is_pushable(int target, int moved_items, int r)
+{
+	if (target <= moved_items)
+		return (true);
+	else if (target <= (moved_items + r))
+		return (true);
+	else
+		return (false);
+}		
+
+static int	push(t_stack *a, t_stack *b, bool rr, bool rb)
+{
+	pb
+	if rr
+		rr
+	else if rb
+		rb
+	return (1);
+}
+
+static void to_b(t_stack *a, t_stack *b, int size, int r)
 {
 	int				moved_items;
-	int				rounds;
-	int				target_index;
+	bool			next;
 
-	rounds = 0;
-	target_index = 0;
+	moved_items = 0;
 	while (a->head)
 	{
-		moved_items = 0;
-		while (a->head && (moved_items < chunk_size))
-		{
-			if (is_in_chunk(a->head->index, chunk_size, rounds))
-			{
-				push_chunk(a, b, chunk_size);
-				moved_items++;
-				target_index++;
-				size--;
-			}
-			else if (is_target_on_top(a->head, target_index, size))
-				ra(a, true);
-			else
-				rra(a, true);
-		}
-		rounds++;
+		if (a->head->next)
+			next = is_pushable(a->head->next->value, moved_items, r);
+		if (!next && (a->head->index <= moved_items))
+			pb
+			rr
+			moved_items++;
+		else if (a->head->index <= moved_items)
+			pb
+			rb
+			moved_items++
+		else if (a->head->index <= (moved_items + r))
+			pb
+			moved_items++;
+		else
+			ra
 	}
 }
 
-static void	chunk_back_to_a(t_stack *a, t_stack *b, int size)
+static void	back_to_a(t_stack *a, t_stack *b, int size)
 {
 	int				high;
 
@@ -91,17 +108,13 @@ static void	chunk_back_to_a(t_stack *a, t_stack *b, int size)
 	}
 }
 
-void	chunk_sort(t_stack *a, t_stack *b, t_strategy *strategy)
+void	sandgalss_sort(t_stack *a, t_stack *b, t_strategy *strategy)
 {
-	int				chunk_size;
+	int				r;
+	int				moved_items;
 
-	if (strategy->total < 10)				 	// me petaba con pocos números
-		chunk_size = strategy->total;
-	else if (strategy->total < 50)
-		chunk_size = strategy->total / 3;
-	else
-		chunk_size = (int)(newton_sqrt((float)strategy->total) * 2.0);
+	r = (int)(newton_sqrt((float)strategy->total) * 2.0);
 	index_list(a, strategy->total);
-	chunk_to_b(a, b, strategy->total, chunk_size);
-	chunk_back_to_a(a, b, strategy->total);
+	to_b(a, b, strategy->total, r);
+	back_to_a(a, b, strategy->total);
 }

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:18:17 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 17:38:17 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/14 10:15:56 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,22 @@ bool	is_sorted(t_lst *n)
 	return (true);
 }
 
-int ft_sqrt(int n)
+float	newton_sqrt(float x)
 {
-	int sq;
+	double			target;
+	double			last_target;
+	int				max_iter;
 
-	sq = 0;
-	if (n <= 0)
-		return (0);
-	while (n != (sq * sq))
+	target = (double)x;
+	max_iter = 0;
+	last_target = 0.0;
+	while (max_iter < 100)
 	{
-		if ((sq * sq) > n)
-			return (0);
-		sq++;
+		last_target = target;
+		target = 0.5 * (target + (double)x / target);
+		if (target == last_target)
+			break ;
+		max_iter++;
 	}
-	return (sq);
+	return ((float)target);
 }
