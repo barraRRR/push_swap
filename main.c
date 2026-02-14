@@ -6,17 +6,12 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 18:51:56 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/14 17:28:19 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
- *		*** EXIT FUNCTIONS ***
- *		FT_LSTCLEAR() and PS_EXIT() free all data structures previously
- *		allocated and return the exit number given -- OJO INVESTIGAR COMO DEFINIR EXIT NUMBER
- */
 static void	ft_lstclear(t_lst **lst)
 {
 	t_lst		*ptr;
@@ -54,10 +49,6 @@ static int	ps_exit(char **split, t_stack *a, t_stack *b, int error)
 	return (error);
 }
 
-/*
- *		*** INIT_STRATEGY() ***
- *		Initializes the variables inside the struct STRATEGY
- */
 void		init_data(t_strategy *strategy, t_stack *a, t_stack *b)
 {
 	strategy->complex = DEFAULT;
@@ -85,18 +76,8 @@ int	main(int argc, char **argv)
 		return (ps_exit(argv, &a, &b, 1));
 	if (!create_stack(argv, &a, &strategy))
 		return (ps_exit(argv, &a, &b, 1));
-	/*
-	 *		Por ahora dejo la inicializacón del disorder aquí, pero ya que hay
-	 *		una función de INIT_STRATEGY creo que debería handlearse ahí de alguna manera
-	 */
 	strategy.disorder = compute_disorder(a.head);
-
-	//		*** TESTING ***
-
-	//testing(&a, &b, &strategy);
-	chunk_sort(&a, &b, &strategy);
-
-	//		***************
-
-	return (ps_exit(argv, &a, &b, 0));	
+	// algorithm_launcher();
+	sandglass_sort(&a, &b, &strategy);
+	return (ps_exit(argv, &a, &b, 0));
 }
