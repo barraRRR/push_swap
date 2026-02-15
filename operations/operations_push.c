@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 15:08:35 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 16:49:48 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,22 @@ static void	push(t_stack *a, t_stack *b)
 		a->tail = a->head; 
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (!b->head)
 		return ;
 	push(a, b);
-	ft_putstr_fd("pa\n", 1);
+	if (!bench->enabled)
+		ft_putstr_fd("pa\n", 1);
+	bench->pa++;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	if (!a->head)
 		return ;
 	push(b, a);
-	ft_putstr_fd("pb\n", 1);
+	if (!bench->enabled)
+		ft_putstr_fd("pb\n", 1);
+	bench->pb++;
 }

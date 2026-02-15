@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:08:46 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/13 17:48:13 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/15 17:17:38 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int get_max_bits(int size)
     return (bits);
 }
 
-void radix_sort(t_stack *a, t_stack *b)
+void radix_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
     int size;
     int max_bits;
@@ -66,13 +66,13 @@ void radix_sort(t_stack *a, t_stack *b)
         while (j < size)
         {
             if (((a->head->value >> i) & 1) == 0)
-                pb(a, b);
+                pb(a, b, bench);
             else
-                ra(a, true);
+                ra(a, true, bench);
             j++;
         }
         while (b->head)
-            pa(a, b);
+            pa(a, b, bench);
         
         i++;
     }
