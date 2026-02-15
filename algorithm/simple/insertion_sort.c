@@ -6,11 +6,25 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:05 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 18:41:15 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 19:02:53 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+int find_highest(t_lst *n)
+{
+	int high;
+
+	high = n->value;
+	while (n)
+	{
+		if (n->value > high)
+			high = n->value;
+		n = n->next;
+	}
+	return (high);
+}
 
 static void	tiny_sort(t_stack *a, t_bench *bench)
 {

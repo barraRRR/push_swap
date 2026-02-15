@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 18:44:40 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 18:55:06 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ps_exit(char **split, t_stack *a, t_stack *b, int error)
 	return (error);
 }
 
-void	init_data(t_strat *strategy, t_stack *a, t_stack *b)
+void	init_data(t_strat *strategy, t_stack *a, t_stack *b, t_bench *bench)
 {
 	strategy->complex = DEFAULT;
 	strategy->defined = false;
@@ -59,10 +59,6 @@ void	init_data(t_strat *strategy, t_stack *a, t_stack *b)
 	a->tail = NULL;
 	b->head = NULL;
 	b->tail = NULL;
-}
-
-void	init_bench(t_bench *bench)
-{
 	bench->enabled = false;
 	bench->sa = 0;
 	bench->sb = 0;
@@ -77,27 +73,26 @@ void	init_bench(t_bench *bench)
 	bench->rrr = 0;
 }
 
-	int main(int argc, char **argv)
-	{
-		t_strat		strategy;
-		t_stack			a;
-		t_stack			b;
-		t_bench			bench;
+int main(int argc, char **argv)
+{
+	t_strat		strategy;
+	t_stack			a;
+	t_stack			b;
+	t_bench			bench;
 
-		if (argc == 1)
-			return (0);
-		init_data(&strategy, &a, &b);
-		init_bench(&bench);
-		argv = ps_split(argv + 1);
-		if (!argv)
-			return (ps_exit(argv, &a, &b, 1));
-		if (!create_stack(argv, &a, &strategy, &bench))
-			return (ps_exit(argv, &a, &b, 1));
-		if (is_sorted(a.head))
-			return (ps_exit(argv, &a, &b, 0));
-		strategy.disorder = compute_disorder(a.head);
-		algo_selector(&a, &b, &strategy, &bench);
-		if (bench.enabled)
-			print_bench(strategy, bench);
+	if (argc == 1)
+		return (0);
+	init_data(&strategy, &a, &b, &bench);
+	argv = ps_split(argv + 1);
+	if (!argv)
+		return (ps_exit(argv, &a, &b, 1));
+	if (!create_stack(argv, &a, &strategy, &bench))
+		return (ps_exit(argv, &a, &b, 1));
+	if (is_sorted(a.head))
 		return (ps_exit(argv, &a, &b, 0));
-	}
+	strategy.disorder = compute_disorder(a.head);
+	algo_selector(&a, &b, &strategy, &bench);
+	if (bench.enabled)
+		print_bench(strategy, bench);
+	return (ps_exit(argv, &a, &b, 0));
+}

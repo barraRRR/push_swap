@@ -6,25 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:59:09 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 17:49:31 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 19:03:20 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	find_highest(t_lst *n)
-{
-	int			high;
-
-	high = n->value;
-	while (n)
-	{
-		if (n->value > high)
-			high = n->value;
-		n = n->next;
-	}
-	return (high);
-}
 
 int	find_low_index(t_lst *n, int low)
 {
@@ -55,9 +41,9 @@ int	find_lowest(t_lst *n)
 	return (low);
 }
 
-int	find_next_lowest(t_lst *n, int prev_low)
+int find_next_lowest(t_lst *n, int prev_low)
 {
-	int			next_low;
+	int next_low;
 
 	next_low = INT_MAX;
 	while (n)
