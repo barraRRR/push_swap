@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 17:13:33 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 18:44:40 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ void	init_bench(t_bench *bench)
 			return (ps_exit(argv, &a, &b, 0));
 		strategy.disorder = compute_disorder(a.head);
 		algo_selector(&a, &b, &strategy, &bench);
+		if (bench.enabled)
+			print_bench(strategy, bench);
 		return (ps_exit(argv, &a, &b, 0));
 	}

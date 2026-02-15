@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 17:18:37 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 18:41:23 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ typedef struct s_bench
 // ****** GENERIC PROTOTYPES ******
 char				**ps_split(char **argv);
 void				ft_putstr_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
+void				ft_putchar_fd(char c, int fd);
 bool				ps_atoi(const char *str, int *value);
 void				init_data(t_strat *strategy, t_stack *a, t_stack *b);
 int					ft_strcmp(char *s1, char *s2);
@@ -83,6 +85,7 @@ bool				create_stack(char **argv, t_stack *a,
 int					ft_lstsize(t_lst *lst);
 bool				is_sorted(t_lst *n);
 void				index_list(t_stack *s, int size);
+void				print_bench(t_strat strategy, t_bench bench);
 
 // ****** ALGORITHM UTILS ******
 int					find_highest(t_lst *n);
@@ -95,7 +98,6 @@ void				algo_selector(t_stack *a, t_stack *b, t_strat *strategy,
 	t_bench *bench);
 
 // ****** ALGORITHM STRATEGIES ******
-void				tiny_sort(t_stack *a, t_bench *bench);
 void				insertion_sort(t_stack *a, t_stack *b,
 					t_strat *strategy, t_bench *bench);
 void				sandglass_sort(t_stack *a, t_stack *b,
