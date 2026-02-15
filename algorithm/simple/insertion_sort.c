@@ -6,102 +6,45 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:05 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 15:38:42 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 15:58:48 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-static bool hanging(t_lst *ptr, t_lst *next, t_lst *tail, unsigned int size)
+static void move_up(t_stack *a, int target)
 {
-	if (ptr->index == 0 && tail->index == (size - 1))
-		return (false);
-	else if (ptr->index == (size - 1) && ptr->next->index == 0)
-		return (false);
-	else if (ptr->index > next->index && ptr->index < tail->index)
-		return (true);
-	else
-		return (false);
+	while (a->head->value != target)
+		ra(a, true);
 }
 
-static bool	find_quickest_route(t_lst *ptr, t_lst *tail, int size)
+static void move_down(t_stack *a, int target)
 {
-	int				up;
-	int				down;
 
-	up = 0;
-	down = 0;
-	while (ptr && !hanging(ptr, ptr->next, tail, size))
-	{
-		ptr = ptr->next;
-		down++;
-	}
-	ptr = tail;
-	while (ptr && !hanging(ptr, ptr->next, tail, size))
-	{
-		ptr = ptr->prev;
-		up++;
-	}
-	if (up <= down)
-		return (true);
-	else
-		return (false);
-}
-
-static bool	wrong_pair(t_lst *a, t_lst *b, int size)
-{
-	int				result;
-
-	result = (b->index - a->index) % size;
-	if (result == -1 || result == -(size - 1))
-		return (true);
-	else
-		return (false);
-}
-
-static void	find_insertion(t_stack *a, t_stack *b, int size)
-{
-	int				b_inx;
-	int				h_inx;
-	int				t_inx;
-
-	pb(a, b);
-	while (1)
-	{
-		b_inx = b->head->index;
-		h_inx = a->head->index;
-		t_inx = a->tail->index;
-		if (wrong_pair(a->head, a->head->next, size))
-			sa(a, true);
-		if (b_inx < h_inx && b_inx > t_inx)
-		{
-			pa(a, b);
-			break ;
-		}
-		else if (b_inx < h_inx && b_inx < h_inx)
-			rra(a, true);
-		else
-			ra(a, true);
-	}
+	while (a->tail->value != target)
+		rra(a, true);
+	rra(a, true);
 }
 
 void	insertion_sort(t_stack *a, t_stack *b, t_strategy *strategy)
 {
-	bool			sorted;
+	int				low;
+	int				i;
+	int				size;
 
-	sorted = false;
-	index_list(a, strategy->total);
-	while (!sorted)
+	size = strategy->total;
+	while (size > 3)
 	{
-		if (wrong_pair(a->head, a->head->next, strategy->total))
-			sa(a, true);
-		if (hanging(a->head, a->head->next, a->tail, strategy->total))
-			find_insertion(a, b, strategy->total);
-		else if (find_quickest_route(a->head, a->tail, strategy->total))
-			rra(a, true);
+		low = find_lowest(a->head);
+		i = find_low_index(a->head, low);
+		if (i <= ((size - 1) / 2)) // doble checkear esya operacion matematica, que no he probado con el - 1
+			move_up(a, low);
 		else
-			ra(a, true);
-		if (!b->head)
-			sorted = is_sorted(a->head);
+			move_down(a, low);
+		pb(a, b);
+		size--;
 	}
+	tiny_sort(a);
+	while (b->head)
+		pa(a, b);
 }
