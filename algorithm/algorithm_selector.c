@@ -3,27 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_selector.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:22:39 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/13 18:41:10 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/15 08:12:13 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// A modificar en función de la implementación de los algoritmos en sí
-
-void algo_selector(t_lst **a, t_lst **tail_a)
+void	algo_selector(t_stack *a, t_stack *b, t_strategy *strategy)
 {
-	float	disorder;
+	float			disorder;
 
-	disorder = compute_disorder(a);
-	if (disorder < 0.2)
-		simple(a, tail_a);
+	disorder = compute_disorder(a->head);
+	if (strategy->complex == SIMPLE)
+		selection_sort(a, b, strategy);
+	else if (strategy->complex == MEDIUM)
+		sandglass_sort(a, b, strategy);
+	else if (strategy->complex == COMPLEX)
+		radix_sort(a, b);
+	else if (strategy->total <= 3)
+		tiny_sort(a);
+	else if (strategy->total <= 5 || disorder < 0.2)
+		selection_sort(a, b, strategy);
 	else if (0.2 <= disorder && disorder < 0.5)
-		medium(a, tail_a);
+		sandglass_sort(a, b, strategy);
 	else
-		complex(a, tail_a);
-	return;
+		radix_sort(a, b);
 }

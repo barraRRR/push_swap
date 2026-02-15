@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/14 16:56:04 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 08:31:49 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,26 @@ int					ft_strcmp(char *s1, char *s2);
 float				newton_sqrt(float x);
 bool				create_stack(char **argv, t_stack *a, t_strategy *strategy);
 int					ft_lstsize(t_lst *lst);
+bool				is_sorted(t_lst *n);
+void				index_list(t_stack *s, int size);
 
 // ****** ALGORITHM UTILS ******
 int					find_highest(t_lst *n);
 int					find_lowest(t_lst *n);
 int					find_next_lowest(t_lst *n, int prev_low);
 int 				find_low_index(t_lst *n, int low);
-void				index_list(t_stack *s, int size);
 bool				is_target_on_top(t_lst *n, int target, unsigned int size);
 float				compute_disorder(t_lst *a);
+void				algo_selector(t_stack *a, t_stack *b, t_strategy *strategy);
 
 // ****** ALGORITHM STRATEGIES ******
 void				tiny_sort(t_stack *a);
 void				selection_sort(t_stack *a, t_stack *b, t_strategy *strategy);
 void				chunk_sort(t_stack *a, t_stack *b, t_strategy *strategy);
 void				sandglass_sort(t_stack *a, t_stack *b, t_strategy *strategy);
+void				radix_sort(t_stack *a, t_stack *b);
 
-	// ****** OPERATIONS ******
+// ****** OPERATIONS ******
 void				sa(t_stack *a, bool print);
 void				sb(t_stack *b, bool print);					
 void				ss(t_stack *a, t_stack *b);
@@ -93,8 +96,5 @@ void				rr(t_stack *a, t_stack *b);
 void				rra(t_stack *a, bool print);	
 void				rrb(t_stack *b, bool print);
 void				rrr(t_stack *a, t_stack *b);
-
-//		Eliminar al final
-void				testing(t_stack *a, t_stack *b, t_strategy *strategy);
 
 #endif

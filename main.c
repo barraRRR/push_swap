@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/14 17:28:19 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 08:32:31 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ int	main(int argc, char **argv)
 		return (ps_exit(argv, &a, &b, 1));
 	if (!create_stack(argv, &a, &strategy))
 		return (ps_exit(argv, &a, &b, 1));
+	if (is_sorted(a.head))
+		return (ps_exit(argv, &a, &b, 0));
 	strategy.disorder = compute_disorder(a.head);
-	// algorithm_launcher();
-	sandglass_sort(&a, &b, &strategy);
+	algo_selector(&a, &b, &strategy);
 	return (ps_exit(argv, &a, &b, 0));
 }
