@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 11:52:30 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 16:45:02 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,27 @@ static void	rotate(t_stack *s)
 	s->tail = tmp;
 }
 
-void	ra(t_stack *a, bool print)
+void	ra(t_stack *a, bool print, t_bench *bench)
 {
 	rotate(a);
-	if (print)
+	if (print && !bench->enabled)
 		ft_putstr_fd("ra\n", 1);
+	bench->ra++;
 }
 
-void	rb(t_stack *b, bool print)
+void	rb(t_stack *b, bool print, t_bench *bench)
 {
 	rotate(b);
-	if (print)
+	if (print && !bench->enabled)
 		ft_putstr_fd("rb\n", 1);
+	bench->rb++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	ra(a, false);
-	rb(b, false);
-	ft_putstr_fd("rr\n", 1);
+	ra(a, false, bench);
+	rb(b, false, bench);
+	if (!bench->enabled)
+		ft_putstr_fd("rr\n", 1);
+	bench->rr++;
 }

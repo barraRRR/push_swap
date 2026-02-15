@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/13 13:06:46 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/15 17:16:12 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static bool	duplicate_values(t_lst *lst, int value)
  *	Parsea el string y comprueba si es una flag válida (sin duplicar)
  */
 
-static bool	validate_stategy(char *argv, t_strategy *strategy)
+static bool validate_stategy(char *argv, t_strat *strategy, t_bench *bench)
 {
-	if (strategy->defined && strategy->bench)
+	if (strategy->defined && bench->enabled)
 		return (false);
 	else if (!strategy->defined && !ft_strcmp(argv, "--simple"))
 		strategy->complex = SIMPLE;
@@ -46,9 +46,9 @@ static bool	validate_stategy(char *argv, t_strategy *strategy)
 		strategy->complex = COMPLEX;
 	else if (!strategy->defined && !ft_strcmp(argv, "--adaptive"))
 		strategy->complex = ADAPTIVE;
-	else if (!strategy->bench && !ft_strcmp(argv, "--bench"))
+	else if (!bench->enabled && !ft_strcmp(argv, "--bench"))
 	{
-		strategy->bench = true;
+		bench->enabled = true;
 		return (true);
 	}
 	else
@@ -97,7 +97,7 @@ static bool	ps_lstadd_back(t_stack *a, int value)
 	return (true);
 }
 
-bool	create_stack(char **argv, t_stack *a, t_strategy *strategy)
+bool	create_stack(char **argv, t_stack *a, t_strat *strategy, t_bench *bench)
 {
 	int			value;
 	int			i;
@@ -113,7 +113,7 @@ bool	create_stack(char **argv, t_stack *a, t_strategy *strategy)
 			if (!ps_lstadd_back(a, value))
 				return (false);
 		}
-		else if (!validate_stategy(argv[i], strategy))
+		else if (!validate_stategy(argv[i], strategy, bench))
 			return (false);
 		i++;
 	}

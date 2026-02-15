@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 14:56:22 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/12 14:55:14 by jbarreir         ###   ########.fr       */
+/*   Created: 2026/01/02 14:57:37 by jbarreir          #+#    #+#             */
+/*   Updated: 2026/02/15 18:09:00 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
-void	tiny_sort(t_stack *a)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int			high;
+	long	l;
 
-	high = find_highest(a->head);
-	if (a->head->value == high)
+	l = n;
+	if (l < 0)
 	{
-		ra(a, true);
-		if (a->head->value > a->head->next->value)
-			sa(a, true);
+		write(fd, "-", 1);
+		l = -l;
 	}
-	else if (a->head->next->value == high)
-	{
-		sa(a, true);
-		ra(a, true);
-		if (a->head->value > a->head->next->value)
-			sa(a, true);
-	}
-	else
-		if (a->head->value > a->head->next->value)
-			sa(a, true);
+	if (l >= 10)
+		ft_putnbr_fd((int)(l / 10), fd);
+	ft_putchar_fd((l % 10) + '0', fd);
 }
