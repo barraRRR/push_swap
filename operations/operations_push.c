@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 16:49:48 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:47:54 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	push(t_stack *a, t_stack *b)
 	a->head = ptr;
 	a->head->prev = NULL;
 	if (!a->head->next)
-		a->tail = a->head; 
+		a->tail = a->head;
 }
 
 void	pa(t_stack *a, t_stack *b, t_bench *bench)

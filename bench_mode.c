@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:19:53 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 14:51:32 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:50:25 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void	print_strategy(t_strat strategy)
 		ft_putstr_fd("O(n log n)\n", 2);
 }
 
-void print_bench(t_strat strategy, t_bench bench)
+void	print_bench(t_strat strategy, t_bench bench)
 {
 	print_disorder(strategy);
 	print_strategy(strategy);

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 13:12:12 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 14:45:41 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:55:30 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static bool	is_pushable(int target, int moved_items, int r)
 		return (false);
 }
 
-static int push(t_stack *a, t_stack *b, int do_r, t_bench *bench)
+static int	push(t_stack *a, t_stack *b, int do_r, t_bench *bench)
 {
 	pb(a, b, bench);
 	if (do_r == 1)
@@ -32,7 +32,7 @@ static int push(t_stack *a, t_stack *b, int do_r, t_bench *bench)
 	return (1);
 }
 
-static void to_b(t_stack *a, t_stack *b, int r, t_bench *bench)
+static void	to_b(t_stack *a, t_stack *b, int r, t_bench *bench)
 {
 	unsigned int		moved_items;
 	bool				next;
@@ -56,7 +56,7 @@ static void to_b(t_stack *a, t_stack *b, int r, t_bench *bench)
 	}
 }
 
-static void back_to_a(t_stack *a, t_stack *b, int size, t_bench *bench)
+static void	back_to_a(t_stack *a, t_stack *b, int size, t_bench *bench)
 {
 	int				high;
 

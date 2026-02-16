@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 18:55:06 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:52:06 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	init_data(t_strat *strategy, t_stack *a, t_stack *b, t_bench *bench)
 	bench->rrr = 0;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_strat		strategy;
+	t_strat			strategy;
 	t_stack			a;
 	t_stack			b;
 	t_bench			bench;

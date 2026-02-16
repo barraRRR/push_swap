@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 16:49:39 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:48:14 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	swap(t_stack *s)
 {
 	int			tmp;
-	
+
 	tmp = s->head->value;
 	s->head->value = s->head->next->value;
 	s->head->next->value = tmp;

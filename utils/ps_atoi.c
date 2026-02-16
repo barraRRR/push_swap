@@ -6,16 +6,12 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 12:29:35 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/10 15:24:13 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:47:15 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
- * 	*** ATOI MODIFICADO ***
- *	Parsea el string, procesa y compueba si es un número válido
- */
 static bool	char_atoi(char c)
 {
 	return ((c == ' ' || (c >= 9 && c <= 13)) || c == '-'
@@ -26,7 +22,7 @@ bool	ps_atoi(const char *str, int *value)
 {
 	int				i;
 	int				sign;
-	long long 		result;			// utilizamos un long long para poder procesar un número extremadamente alto
+	long long		result;
 
 	i = 0;
 	sign = 1;
@@ -45,7 +41,7 @@ bool	ps_atoi(const char *str, int *value)
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 		result = (result * 10) + (str[i++] - '0');
 	result *= sign;
-	if (str[i] || result < INT_MIN || result > INT_MAX)		// aquí comprobamos que no haya más caracteres y que el resultado quepa en un int
+	if (str[i] || result < INT_MIN || result > INT_MAX)
 		return (false);
 	*value = (int)result;
 	return (true);
