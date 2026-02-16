@@ -1,4 +1,4 @@
-_This project was developed as part of the 42 curriculum by edsole-a and jbarreir._
+_This project has been created as part of the 42 curriculum by edsole-a and jbarreir._
 
 # push_swap
 
