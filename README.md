@@ -218,6 +218,7 @@ For stacks with high entropy, Radix Sort provides a consistent bitwise partition
 
 ### Algorithm Deep Dives
 * [Push_swap: Performant Sorting Video](https://www.youtube.com/watch?v=OaG81sDEpVk&t=2945s) - Visual walkthrough of stack coordination and operations.
+* [PUSH_SWAP: the smallest number of movements](https://medium.com/@ridwaneelfilali/push-swap-eff35d3ee0c4) - Explanation of Sanglasss/Hourglass algorithm by 42 student B.R.O.L.Y.
 
 ### Visualizers
 * [Push_swap Visualizer (o-reo)](https://github.com/o-reo/push_swap_visualizer) - Essential tool for debugging, verifying moves, and seeing the algorithm in real-time.
