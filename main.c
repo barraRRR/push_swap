@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:54:39 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:52:06 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:39:49 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	init_data(t_strat *strategy, t_stack *a, t_stack *b, t_bench *bench)
 	a->tail = NULL;
 	b->head = NULL;
 	b->tail = NULL;
+	bench->count_only = false;
 	bench->enabled = false;
 	bench->sa = 0;
 	bench->sb = 0;
@@ -71,6 +72,16 @@ void	init_data(t_strat *strategy, t_stack *a, t_stack *b, t_bench *bench)
 	bench->rra = 0;
 	bench->rrb = 0;
 	bench->rrr = 0;
+}
+
+static int	add_total(t_bench bench)
+{
+	int			total;
+
+	total = bench.sa + bench.sb + bench.ss + bench.pa + bench.pb;
+	total += bench.ra + bench.rb + bench.rr;
+	total += bench.rra + bench.rrb + bench.rrr;
+	return (total);
 }
 
 int	main(int argc, char **argv)
@@ -92,7 +103,7 @@ int	main(int argc, char **argv)
 		return (ps_exit(argv, &a, &b, 0));
 	strategy.disorder = compute_disorder(a.head);
 	algo_selector(&a, &b, &strategy, &bench);
-	if (bench.enabled)
-		print_bench(strategy, bench);
+	ft_putnbr_fd(add_total(bench), 2);
+	ft_putstr_fd("\n", 2);
 	return (ps_exit(argv, &a, &b, 0));
 }

@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:54:13 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:39:51 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_strategy
 
 typedef struct s_bench
 {
+	bool				count_only;
 	bool				enabled;
 	int					sa;
 	int					sb;					
