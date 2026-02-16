@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:54:13 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:22:30 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ void				insertion_sort(t_stack *a, t_stack *b,
 						t_strat *strategy, t_bench *bench);
 void				hourglass_sort(t_stack *a, t_stack *b,
 						t_strat *strategy, t_bench *bench);
-void				radix_sort(t_stack *a, t_stack *b, t_bench *bench);
+void				radix_sort(t_stack *a, t_stack *b, t_strat *strategy,
+						t_bench *bench);
 
 // ****** OPERATIONS ******
 void				sa(t_stack *a, bool print, t_bench *bench);

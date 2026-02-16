@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:22:39 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/16 14:48:53 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:23:29 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	algo_selector(t_stack *a, t_stack *b, t_strat *strategy,
 	else if (strategy->complex == MEDIUM)
 		hourglass_sort(a, b, strategy, bench);
 	else if (strategy->complex == COMPLEX)
-		radix_sort(a, b, bench);
+		radix_sort(a, b, strategy, bench);
 	else if (strategy->total <= 5 || disorder < 0.2)
 	{
 		insertion_sort(a, b, strategy, bench);
@@ -61,7 +61,7 @@ void	algo_selector(t_stack *a, t_stack *b, t_strat *strategy,
 	}
 	else
 	{
-		radix_sort(a, b, bench);
+		radix_sort(a, b, strategy, bench);
 		strategy->complex = COMPLEX;
 	}
 }

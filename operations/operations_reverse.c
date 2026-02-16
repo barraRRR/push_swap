@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:00:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 16:45:31 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:12:44 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	rrb(t_stack *b, bool print, t_bench *bench)
 
 void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	ra(a, false, bench);
-	rb(b, false, bench);
+	rra(a, false, bench);
+	rrb(b, false, bench);
 	if (!bench->enabled)
 		ft_putstr_fd("rrr\n", 1);
 	bench->rrr++;
