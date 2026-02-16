@@ -6,16 +6,12 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 17:16:12 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:51:19 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-/*
- *	*** DUPLICATES ***
- *	Compueba que no haya datos duplicados en la lista
- */
 static bool	duplicate_values(t_lst *lst, int value)
 {
 	if (!lst)
@@ -28,11 +24,6 @@ static bool	duplicate_values(t_lst *lst, int value)
 	}
 	return (true);
 }
-
-/*
- *	*** STRATEGY VALIDATOR ***
- *	Parsea el string y comprueba si es una flag válida (sin duplicar)
- */
 
 static bool validate_stategy(char *argv, t_strat *strategy, t_bench *bench)
 {
@@ -57,10 +48,6 @@ static bool validate_stategy(char *argv, t_strat *strategy, t_bench *bench)
 	return (true);
 }
 
-/*
- *	*** LISTS MGMT ***
- *	Crea y valida la lista enlazada
- */
 static t_lst	*ps_lstnew(int value)
 {
 	t_lst	*new;
