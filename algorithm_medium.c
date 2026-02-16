@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium.c                                           :+:      :+:    :+:   */
+/*   algorithm_medium.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 13:12:12 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:55:30 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:54:28 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 static bool	is_pushable(int target, int moved_items, int r)
 {

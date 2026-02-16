@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 17:22:39 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/16 18:23:29 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:56:00 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 float	compute_disorder(t_lst *a)
 {

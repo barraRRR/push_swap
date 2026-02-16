@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_atoi.c                                          :+:      :+:    :+:   */
+/*   utils_strings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 12:29:35 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:47:15 by jbarreir         ###   ########.fr       */
+/*   Created: 2026/01/02 14:42:55 by jbarreir          #+#    #+#             */
+/*   Updated: 2026/02/16 19:00:44 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	l;
+
+	l = n;
+	if (l < 0)
+	{
+		write(fd, "-", 1);
+		l = -l;
+	}
+	if (l >= 10)
+		ft_putnbr_fd((int)(l / 10), fd);
+	ft_putchar_fd((l % 10) + '0', fd);
+}
 
 static bool	char_atoi(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:07:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:47:54 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 19:00:56 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"		// ojo
+#include "push_swap.h"
 
 static void	push(t_stack *a, t_stack *b)
 {

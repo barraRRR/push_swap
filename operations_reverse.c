@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_rotate.c                                :+:      :+:    :+:   */
+/*   operations_reverse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/15 16:45:02 by jbarreir         ###   ########.fr       */
+/*   Created: 2026/02/10 15:00:54 by jbarreir          #+#    #+#             */
+/*   Updated: 2026/02/16 18:57:49 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"		// ojo
+#include "push_swap.h"		// ojo
 
-static void	rotate(t_stack *s)
+static void	reverse_rotate(t_stack *s)
 {
-	t_lst		*tmp;
+	t_lst		*ptr;
 
 	if (!s->head || !s->head->next)
 		return ;
-	tmp = s->head;
-	s->head = tmp->next;
+	ptr = s->tail;
+	s->tail = ptr->prev;
+	s->tail->next = NULL;
+	ptr->next = s->head;
+	s->head->prev = ptr;
+	s->head = ptr;
 	s->head->prev = NULL;
-	tmp->next = NULL;
-	tmp->prev = s->tail;
-	s->tail->next = tmp;
-	s->tail = tmp;
 }
 
-void	ra(t_stack *a, bool print, t_bench *bench)
+void	rra(t_stack *a, bool print, t_bench *bench)
 {
-	rotate(a);
+	reverse_rotate(a);
 	if (print && !bench->enabled)
-		ft_putstr_fd("ra\n", 1);
-	bench->ra++;
+		ft_putstr_fd("rra\n", 1);
+	bench->rra++;
 }
 
-void	rb(t_stack *b, bool print, t_bench *bench)
+void	rrb(t_stack *b, bool print, t_bench *bench)
 {
-	rotate(b);
+	reverse_rotate(b);
 	if (print && !bench->enabled)
-		ft_putstr_fd("rb\n", 1);
-	bench->rb++;
+		ft_putstr_fd("rrb\n", 1);
+	bench->rrb++;
 }
 
-void	rr(t_stack *a, t_stack *b, t_bench *bench)
+void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
-	ra(a, false, bench);
-	rb(b, false, bench);
+	rra(a, false, bench);
+	rrb(b, false, bench);
 	if (!bench->enabled)
-		ft_putstr_fd("rr\n", 1);
-	bench->rr++;
+		ft_putstr_fd("rrr\n", 1);
+	bench->rrr++;
 }
