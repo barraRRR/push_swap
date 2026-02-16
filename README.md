@@ -42,19 +42,22 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
 
 Our implementation features an Adaptive Mode and a custom Benchmark suite.
 
-#### Strategy Overrides: You can force a specific algorithm using flags:
+#### Strategy Overrides:
+You can force a specific algorithm using flags:
 
 - `--simple`: Forces Insertion Sort.
 - `--medium`: Forces Hourglass Sort.
 - `--complex`: Forces Radix Sort.
 
-#### Performance Metrics: Enable the benchmark report (outputs to stderr):
+#### Performance Metrics:
+Enable the benchmark report (outputs to stderr):
 
 ```Bash
 ./push_swap --bench 5 2 8 1 9
 ```
 
-#### Error Handling: The program strictly validates all input. It will display Error on stderr and exit with a non-zero status if:
+#### Error Handling:
+The program strictly validates all input. It will display Error on stderr and exit with a non-zero status if:
 
 - Arguments are not integers.
 - Any integer exceeds INT_MIN or INT_MAX.
@@ -102,7 +105,7 @@ typedef enum e_complexity
 typedef struct s_strat
 {
     t_complexity    complex;
-    bool            defined; 		// True if a specific flag was provided
+    bool            defined;
 	int				total;
 	float			disorder;
 }	t_strat;
