@@ -45,7 +45,7 @@ Our implementation features an Adaptive Mode and a custom Benchmark suite.
 #### Strategy Overrides: You can force a specific algorithm using flags:
 
 - `--simple`: Forces Insertion Sort.
-- `--medium`: Forces Sandglass Sort.
+- `--medium`: Forces Hourglass Sort.
 - `--complex`: Forces Radix Sort.
 
 #### Performance Metrics: Enable the benchmark report (outputs to stderr):
@@ -184,7 +184,7 @@ The parsing logic is designed to be robust, handling multiple input formats seam
 To ensure the most efficient approach, the program calculates the `Disorder Coefficient (D)` before performing any operations. This is done by counting inversions (pairs of elements that are in the wrong relative order).
 
 - **Low Entropy (D < 0.2)**: Executes `Insertion Sort`. Ideal for nearly sorted stacks where only a few elements are out of place.
-- **Medium Entropy (0.2 ≤ D < 0.5)**: Executes `Sandglass Sort`. Optimized for average distributions where a sliding window can partition data effectively.
+- **Medium Entropy (0.2 ≤ D < 0.5)**: Executes `Hourglass Sort`. Optimized for average distributions where a sliding window can partition data effectively.
 - **High Entropy (D ≥ 0.5)**: Executes `Radix Sort`. Best for maximum chaos, providing a stable and predictable number of moves.
 
 ### Insertion Sort (O(n^2))
@@ -196,7 +196,7 @@ Our strategy for small sets or nearly sorted stacks.
 	- If the index is in the lower half, it uses `rra`.
 - **Tiny Sort**: Once the stack is reduced to 3 elements, a hardcoded logic solves it in a maximum of `3 moves`, regardless of their initial position.
 
-### Sandglass Sort (O(n√n))
+### Hourglass Sort (O(n√n))
 
 This is our primary engine for the 100 and 500 number challenges. It pushes elements to Stack B in a way that resembles an hourglass shape.
 
@@ -218,12 +218,12 @@ For stacks with high entropy, Radix Sort provides a consistent bitwise partition
 
 ### Algorithm Deep Dives
 * [Push_swap: Performant Sorting Video](https://www.youtube.com/watch?v=OaG81sDEpVk&t=2945s) - Visual walkthrough of stack coordination and operations.
-* [PUSH_SWAP: the smallest number of movements](https://medium.com/@ridwaneelfilali/push-swap-eff35d3ee0c4) - Explanation of Sanglasss/Hourglass algorithm by 42 student B.R.O.L.Y.
+* [PUSH_SWAP: the smallest number of movements](https://medium.com/@ridwaneelfilali/push-swap-eff35d3ee0c4) - Explanation of Hourglass algorithm by 42 student B.R.O.L.Y.
 
 ### Visualizers
 * [Push_swap Visualizer (o-reo)](https://github.com/o-reo/push_swap_visualizer) - Essential tool for debugging, verifying moves, and seeing the algorithm in real-time.
 
-## AI Usage Disclosure - TERMINAR DE REDACTAR
+## AI Usage Disclosure
 
 In compliance with 42's evaluation standards regarding Artificial Intelligence:
 

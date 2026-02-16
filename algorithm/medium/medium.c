@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sandglass_sort.c                                   :+:      :+:    :+:   */
+/*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 13:12:12 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 10:55:55 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:45:41 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,10 @@ static void to_b(t_stack *a, t_stack *b, int r, t_bench *bench)
 			moved_items += push(a, b, 2, bench);
 		else if (a->head->index <= (moved_items + r))
 			moved_items += push(a, b, 0, bench);
+		else if (is_pushable(a->tail->index, moved_items, r))
+			rra(a, true, bench);
 		else
-		{
-			if (is_pushable(a->tail->index, moved_items, r))
-				rra(a, true, bench);
-			else
-				ra(a, true, bench);
-		}
+			ra(a, true, bench);
 	}
 }
 
@@ -84,7 +81,7 @@ static void back_to_a(t_stack *a, t_stack *b, int size, t_bench *bench)
 	}
 }
 
-void	sandglass_sort(t_stack *a, t_stack *b, t_strat *strategy,
+void	hourglass_sort(t_stack *a, t_stack *b, t_strat *strategy,
 	t_bench *bench)
 {
 	int				r;
