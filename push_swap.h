@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 18:22:30 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 08:29:43 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void				print_bench(t_strat strategy, t_bench bench);
 // ****** ALGORITHM UTILS ******
 int					find_highest(t_lst *n);
 int					find_lowest(t_lst *n);
-int					find_low_index(t_lst *n, int low);
 bool				is_target_on_top(t_lst *n, int target, unsigned int size);
 float				compute_disorder(t_lst *a);
 void				algo_selector(t_stack *a, t_stack *b, t_strat *strategy,
