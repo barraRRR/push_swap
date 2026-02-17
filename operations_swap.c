@@ -6,7 +6,7 @@
 /*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 13:32:44 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:51:16 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ void	sb(t_stack *b, bool print, t_bench *bench)
 
 void	ss(t_stack *a, t_stack *b, t_bench *bench)
 {
-	sa(a, false, bench);
-	sb(b, false, bench);
+	if (!(a->head && a->head->next) && !(b->head && b->head->next))
+		return ;
+	if (a->head && a->head->next)
+		swap(a);
+	if (b->head && b->head->next)
+		swap(b);
 	ft_putstr_fd("ss\n", 1);
 	bench->ss++;
 }
