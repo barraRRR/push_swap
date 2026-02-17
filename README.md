@@ -219,7 +219,7 @@ For stacks with high entropy, Radix Sort provides a consistent bitwise partition
 
 - **Normalization (Indexing)**: We map every value to its rank (0 to n−1). This *"compression"* ensures that the algorithm only processes the necessary number of bits (e.g., 9 bits for 500 numbers), regardless of whether the original integers were very large or negative.
 - **Bitwise Partitioning**: It iterates through **each bit**, pushing elements with a 0 bit to Stack B and rotating those with a 1 bit in Stack A, ensuring a stable sort across multiple passes.
-- **Move Bound**: While Radix Sort has a higher move bound than Sandglass **(averaging ~6700 moves for n=500)**, it is used as a fallback for *high-entropy stacks (D≥0.5)* because its performance is **constant** and independent of the initial distribution, ensuring the stack is sorted in a predictable number of operations where heuristic-based windowing might struggle. 
+- **Move Bound**: While Radix Sort has a higher move bound than Hourglass **(averaging ~6700 moves for n=500)**, it is used as a fallback for *high-entropy stacks (D≥0.5)* because its performance is **constant** and independent of the initial distribution, ensuring the stack is sorted in a predictable number of operations where heuristic-based windowing might struggle. 
 
 ## Benchmark & Diagnostic Mode
 Our implementation features a built-in diagnostic suite designed to analyze algorithmic performance. To maintain compliance with the project's output requirements, the program utilizes I/O Stream Redirection: sorting instructions are sent to the standard output (`stdout`), while performance metrics are directed to the standard error (`stderr`).
