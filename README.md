@@ -180,15 +180,21 @@ The parsing logic is designed to be robust, handling multiple input formats seam
        [ Ready to Sort ]
 ```
 
-## Algorithmic Strategies
+## Algorithmic Rationale & Complexity
+
+Our sorting architecture is divided into three regimes based on the input size (n) and the Disorder Coefficient (D).
 
 ### Heuristic Selection (The Disorder Coefficient)
 
 To ensure the most efficient approach, the program calculates the `Disorder Coefficient (D)` before performing any operations. This is done by counting inversions (pairs of elements that are in the wrong relative order).
 
-- **Low Entropy (D < 0.2)**: Executes `Selection Sort`. Ideal for nearly sorted stacks where only a few elements are out of place.
-- **Medium Entropy (0.2 ≤ D < 0.5)**: Executes `Hourglass Sort`. Optimized for average distributions where a sliding window can partition data effectively.
-- **High Entropy (D ≥ 0.5)**: Executes `Radix Sort`. Best for maximum chaos, providing a stable and predictable number of moves.
+| Regime | Condition | Strategy | Rationale |
+| ------ | --------- | -------- | --------- |
+| Simple | n≤5 or D<0.2 | Selection Sort	| For small or nearly sorted sets, selecting the minimum is the most direct path to order with minimal logic overhead. |
+| Medium | 2≤D<0.5 | Sandglass Sort | Optimized for average distributions. It uses a sliding window to pre-sort Stack B, outperforming Radix in move count. |
+| Complex | D≥0.5 | Radix Sort | Used when entropy is high. Bitwise partitioning ensures a stable, predictable performance regardless of data chaos. |
+
+
 
 ### Selection Sort (O(n^2))
 
@@ -198,6 +204,7 @@ Our strategy for small sets or nearly sorted stacks.
 	- If the index is in the upper half, it uses `ra`.
 	- If the index is in the lower half, it uses `rra`.
 - **Tiny Sort**: Once the stack is reduced to 3 elements, a hardcoded logic solves it in a maximum of `3 moves`, regardless of their initial position.
+- **Move Bound**: For n=5, the upper bound is 12 moves.
 
 ### Hourglass Sort (O(n√n))
 
@@ -206,13 +213,15 @@ This is our primary engine for the 100 and 500 number challenges. It pushes elem
 - **Newton-Raphson Optimization**: To determine the ideal `"radius" (r)` for the sliding window without using forbidden math libraries, we implemented a custom square root function: `r = newton_sqrt(n) × 1.2`. This ensures the window size is mathematically tuned to the input size n.
 - **Sliding Window**: By rotating Stack B based on the `element's index`, we keep the smallest and largest values of each chunk at the extremes, facilitating a much faster recovery to Stack A.
 - **Instruction Coupling**: The algorithm looks ahead to the next node; if both stacks require a rotation, it utilizes `rr` or `rrr` to merge two moves into one.
+- **Move Bound**: For n=100, our implementation stays under 700 moves.
 
 ### Radix Sort (O(n log n))
 
 For stacks with high entropy, Radix Sort provides a consistent bitwise partitioning.
 
-* **Normalization (Indexing)**: We map every value to its rank (0 to n−1). This *"compression"* ensures that the algorithm only processes the necessary number of bits (e.g., 9 bits for 500 numbers), regardless of whether the original integers were very large or negative.
-* **Bitwise Partitioning**: It iterates through **each bit**, pushing elements with a 0 bit to Stack B and rotating those with a 1 bit in Stack A, ensuring a stable sort across multiple passes.
+- **Normalization (Indexing)**: We map every value to its rank (0 to n−1). This *"compression"* ensures that the algorithm only processes the necessary number of bits (e.g., 9 bits for 500 numbers), regardless of whether the original integers were very large or negative.
+- **Bitwise Partitioning**: It iterates through **each bit**, pushing elements with a 0 bit to Stack B and rotating those with a 1 bit in Stack A, ensuring a stable sort across multiple passes.
+- **Move Bound**: While Radix Sort has a higher move bound than Sandglass **(averaging ~6700 moves for n=500)**, it is used as a fallback for *high-entropy stacks (D≥0.5)* because its performance is **constant** and independent of the initial distribution, ensuring the stack is sorted in a predictable number of operations where heuristic-based windowing might struggle. 
 
 ## Resources
 
