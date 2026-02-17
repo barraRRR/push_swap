@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 18:57:45 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 10:09:36 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	rotate(t_stack *s)
 void	ra(t_stack *a, bool print, t_bench *bench)
 {
 	rotate(a);
-	if (print && !bench->enabled)
+	if (print)
 		ft_putstr_fd("ra\n", 1);
 	bench->ra++;
 }
@@ -38,7 +38,7 @@ void	ra(t_stack *a, bool print, t_bench *bench)
 void	rb(t_stack *b, bool print, t_bench *bench)
 {
 	rotate(b);
-	if (print && !bench->enabled)
+	if (print)
 		ft_putstr_fd("rb\n", 1);
 	bench->rb++;
 }
@@ -47,7 +47,6 @@ void	rr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	ra(a, false, bench);
 	rb(b, false, bench);
-	if (!bench->enabled)
-		ft_putstr_fd("rr\n", 1);
+	ft_putstr_fd("rr\n", 1);
 	bench->rr++;
 }

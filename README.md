@@ -194,8 +194,6 @@ To ensure the most efficient approach, the program calculates the `Disorder Coef
 | Medium | 2≤D<0.5 | Sandglass Sort | Optimized for average distributions. It uses a sliding window to pre-sort Stack B, outperforming Radix in move count. |
 | Complex | D≥0.5 | Radix Sort | Used when entropy is high. Bitwise partitioning ensures a stable, predictable performance regardless of data chaos. |
 
-
-
 ### Selection Sort (O(n^2))
 
 Our strategy for small sets or nearly sorted stacks.
@@ -222,6 +220,37 @@ For stacks with high entropy, Radix Sort provides a consistent bitwise partition
 - **Normalization (Indexing)**: We map every value to its rank (0 to n−1). This *"compression"* ensures that the algorithm only processes the necessary number of bits (e.g., 9 bits for 500 numbers), regardless of whether the original integers were very large or negative.
 - **Bitwise Partitioning**: It iterates through **each bit**, pushing elements with a 0 bit to Stack B and rotating those with a 1 bit in Stack A, ensuring a stable sort across multiple passes.
 - **Move Bound**: While Radix Sort has a higher move bound than Sandglass **(averaging ~6700 moves for n=500)**, it is used as a fallback for *high-entropy stacks (D≥0.5)* because its performance is **constant** and independent of the initial distribution, ensuring the stack is sorted in a predictable number of operations where heuristic-based windowing might struggle. 
+
+## Benchmark & Diagnostic Mode
+Our implementation features a built-in diagnostic suite designed to analyze algorithmic performance. To maintain compliance with the project's output requirements, the program utilizes I/O Stream Redirection: sorting instructions are sent to the standard output (`stdout`), while performance metrics are directed to the standard error (`stderr`).
+
+### Usage
+
+To activate the diagnostic mode, use the `--bench` flag. This can be combined with strategy overrides to compare efficiency across different regimes:
+
+```bash
+# Standard execution with real-time metrics
+./push_swap --bench 5 4 3 2 1
+
+# Isolate sorting instructions from statistics
+./push_swap --bench --simple 5 4 3 2 1 2>bench.txt >/dev/null && cat bench.txt
+cat stats.txt
+[bench] disorder:  100.0%
+[bench] strategy:  Simple / O(n^2)
+[bench] total_ops: 8
+[bench] sa:  1  sb:  0  ss:  0  pa:  2  pb:  2
+[bench] ra:  1  rb:  0  rr:  0  rra:  2  rrr:  0
+```
+
+### Key Metrics Reported
+
+The report generated via stderr provides the following technical data:
+
+- **Disorder Percentage**: A perfectly sorted stack returns 0.00%, while a reverse-sorted stack returns 100.00%.
+- **Strategy & Complexity Class**: Identifies the specific engine chosen by the `Adaptive Selector` (Selection, Sandglass, or Radix) and its asymptotic complexity.
+- **Total Operations**: The final count of all movements.
+- **Individual Instruction Breakdown**: A granular count of every operation used (`sa`, `pb`, `ra`, `rrr`, etc.), allowing for precise bottleneck analysis.
+
 
 ## Resources
 
