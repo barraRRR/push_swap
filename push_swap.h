@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 15:10:13 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 08:29:43 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 09:09:38 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				algo_selector(t_stack *a, t_stack *b, t_strat *strategy,
 						t_bench *bench);
 
 // ****** ALGORITHM STRATEGIES ******
-void				insertion_sort(t_stack *a, t_stack *b,
+void				selection_sort(t_stack *a, t_stack *b,
 						t_strat *strategy, t_bench *bench);
 void				hourglass_sort(t_stack *a, t_stack *b,
 						t_strat *strategy, t_bench *bench);

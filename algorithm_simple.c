@@ -6,7 +6,7 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:05 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 08:35:35 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 09:09:16 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	tiny_sort(t_stack *a, t_bench *bench)
 		sa(a, true, bench);
 }
 
-void	insertion_sort(t_stack *a, t_stack *b, t_strat *strategy,
+void	selection_sort(t_stack *a, t_stack *b, t_strat *strategy,
 	t_bench *bench)
 {
 	int				target;

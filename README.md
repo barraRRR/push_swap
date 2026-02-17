@@ -45,7 +45,7 @@ Our implementation features an Adaptive Mode and a custom Benchmark suite.
 #### Strategy Overrides:
 You can force a specific algorithm using flags:
 
-- `--simple`: Forces Insertion Sort.
+- `--simple`: Forces Selection Sort.
 - `--medium`: Forces Hourglass Sort.
 - `--complex`: Forces Radix Sort.
 
@@ -186,11 +186,11 @@ The parsing logic is designed to be robust, handling multiple input formats seam
 
 To ensure the most efficient approach, the program calculates the `Disorder Coefficient (D)` before performing any operations. This is done by counting inversions (pairs of elements that are in the wrong relative order).
 
-- **Low Entropy (D < 0.2)**: Executes `Insertion Sort`. Ideal for nearly sorted stacks where only a few elements are out of place.
+- **Low Entropy (D < 0.2)**: Executes `Selection Sort`. Ideal for nearly sorted stacks where only a few elements are out of place.
 - **Medium Entropy (0.2 ≤ D < 0.5)**: Executes `Hourglass Sort`. Optimized for average distributions where a sliding window can partition data effectively.
 - **High Entropy (D ≥ 0.5)**: Executes `Radix Sort`. Best for maximum chaos, providing a stable and predictable number of moves.
 
-### Insertion Sort (O(n^2))
+### Selection Sort (O(n^2))
 
 Our strategy for small sets or nearly sorted stacks.
 
@@ -232,7 +232,7 @@ In compliance with the 42 curriculum requirements, the following breakdown outli
 ### jbarreir:
 * Implementation of the Parsing & Input Validation system (handling quoted strings and mixed arguments).
 * Design of the Doubly Linked List and core stack operations (sa, pa, ra, rra, etc.).
-* Development of the Insertion Sort (Simple strategy) and Sandglass Sort (Medium strategy).
+* Development of the Selection Sort (Simple strategy) and Sandglass Sort (Medium strategy).
 * Design of the --bench mode diagnostic system.
 
 ### edsole-a:
