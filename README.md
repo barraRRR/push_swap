@@ -226,6 +226,23 @@ For stacks with high entropy, Radix Sort provides a consistent bitwise partition
 ### Visualizers
 * [Push_swap Visualizer (o-reo)](https://github.com/o-reo/push_swap_visualizer) - Essential tool for debugging, verifying moves, and seeing the algorithm in real-time.
 
+## Contributions
+In compliance with the 42 curriculum requirements, the following breakdown outlines the core contributions of each learner:
+
+### jbarreir:
+* Implementation of the Parsing & Input Validation system (handling quoted strings and mixed arguments).
+* Design of the Doubly Linked List and core stack operations (sa, pa, ra, rra, etc.).
+* Development of the Insertion Sort (Simple strategy) and Sandglass Sort (Medium strategy).
+* Design of the --bench mode diagnostic system.
+
+### edsole-a:
+* Design and implementation of the algo_selector and the Disorder Coefficient heuristic.
+* Development of the Radix Sort (Complex strategy) and the stack Normalization logic.
+* Optimization of bitwise operations for large datasets.
+
+### Joint Work:
+* Unified Error Handling and memory leak prevention system.
+
 ## AI Usage Disclosure
 
 In compliance with 42's evaluation standards regarding Artificial Intelligence:
