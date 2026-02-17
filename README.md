@@ -191,7 +191,7 @@ To ensure the most efficient approach, the program calculates the `Disorder Coef
 | Regime | Condition | Strategy | Rationale |
 | ------ | --------- | -------- | --------- |
 | Simple | n≤5 or D<0.2 | Selection Sort	| For small or nearly sorted sets, selecting the minimum is the most direct path to order with minimal logic overhead. |
-| Medium | 2≤D<0.5 | Hourglasslass Sort | Optimized for average distributions. It uses a sliding window to pre-sort Stack B, outperforming Radix in move count. |
+| Medium | 2≤D<0.5 | Hourglass Sort | Optimized for average distributions. It uses a sliding window to pre-sort Stack B, outperforming Radix in move count. |
 | Complex | D≥0.5 | Radix Sort | Used when entropy is high. Bitwise partitioning ensures a stable, predictable performance regardless of data chaos. |
 
 ### Selection Sort (O(n^2))
