@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench_mode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:19:53 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:50:25 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:20:45 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	print_disorder(t_strat strategy)
 	ft_putstr_fd("[bench] disorder:  ", 2);
 	ft_putnbr_fd(integers, 2);
 	ft_putstr_fd(".", 2);
+	if (decimals_mod < 10)
+        ft_putstr_fd("0", 2);
 	ft_putnbr_fd(decimals_mod, 2);
 	ft_putstr_fd("%\n", 2);
 }
@@ -58,6 +60,8 @@ static void	print_op_row(t_bench bench)
 	ft_putnbr_fd(bench.rr, 2);
 	ft_putstr_fd("  rra:  ", 2);
 	ft_putnbr_fd(bench.rra, 2);
+	ft_putstr_fd("  rrb:  ", 2);
+	ft_putnbr_fd(bench.rrb, 2);
 	ft_putstr_fd("  rrr:  ", 2);
 	ft_putnbr_fd(bench.rrr, 2);
 	ft_putstr_fd("\n", 2);
