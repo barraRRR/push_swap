@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   stack_builder.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 15:51:20 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:03:42 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	duplicate_values(t_lst *lst, int value)
 	return (true);
 }
 
-static bool	validate_stategy(char *argv, t_strat *strategy, t_bench *bench)
+static bool	validate_strategy(char *argv, t_strat *strategy, t_bench *bench)
 {
 	if (strategy->defined && bench->enabled)
 		return (false);
@@ -100,7 +100,7 @@ bool	create_stack(char **argv, t_stack *a, t_strat *strategy, t_bench *bench)
 			if (!ps_lstadd_back(a, value))
 				return (false);
 		}
-		else if (!validate_stategy(argv[i], strategy, bench))
+		else if (!validate_strategy(argv[i], strategy, bench))
 			return (false);
 		i++;
 	}
