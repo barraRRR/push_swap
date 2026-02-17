@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   operations_reverse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:00:54 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 13:55:51 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:41:57 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 static void	reverse_rotate(t_stack *s)
 {
 	t_lst		*ptr;
@@ -29,27 +30,31 @@ static void	reverse_rotate(t_stack *s)
 void	rra(t_stack *a, bool print, t_bench *bench)
 {
 	if (!a->head || !a->head->next)
-        return ;
+		return ;
 	reverse_rotate(a);
 	if (print)
+	{
 		ft_putstr_fd("rra\n", 1);
-	bench->rra++;
+		bench->rra++;
+	}
 }
 
 void	rrb(t_stack *b, bool print, t_bench *bench)
 {
-    if (!b->head || !b->head->next)
-        return ;
+	if (!b->head || !b->head->next)
+		return ;
 	reverse_rotate(b);
 	if (print)
+	{
 		ft_putstr_fd("rrb\n", 1);
-	bench->rrb++;
+		bench->rrb++;
+	}
 }
 
-void rrr(t_stack *a, t_stack *b, t_bench *bench)
+void	rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
-    reverse_rotate(a);
-    reverse_rotate(b);
-    ft_putstr_fd("rrr\n", 1);
-    bench->rrr++;
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putstr_fd("rrr\n", 1);
+	bench->rrr++;
 }

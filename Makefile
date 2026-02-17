@@ -6,7 +6,7 @@
 #    By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 18:10:00 by edsole-a          #+#    #+#              #
-#    Updated: 2026/02/16 19:13:30 by jbarreir         ###   ########.fr        #
+#    Updated: 2026/02/17 14:31:24 by jbarreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRC         = main.c                stack_builder.c			\
 
 OBJ         = $(SRC:.c=.o)
 
-# Colores
 GREEN       = \033[0;32m
 RED         = \033[0;31m
 YELLOW      = \033[0;33m

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench_mode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:19:53 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 13:20:45 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:40:24 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	print_disorder(t_strat strategy)
 	ft_putnbr_fd(integers, 2);
 	ft_putstr_fd(".", 2);
 	if (decimals_mod < 10)
-        ft_putstr_fd("0", 2);
+		ft_putstr_fd("0", 2);
 	ft_putnbr_fd(decimals_mod, 2);
 	ft_putstr_fd("%\n", 2);
 }

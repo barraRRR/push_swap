@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 13:51:16 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:38:16 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ void	sa(t_stack *a, bool print, t_bench *bench)
 	{
 		swap(a);
 		if (print)
+		{
 			ft_putstr_fd("sa\n", 1);
-		bench->sa++;
+			bench->sa++;
+		}
 	}
 }
 
@@ -38,8 +40,10 @@ void	sb(t_stack *b, bool print, t_bench *bench)
 	{
 		swap(b);
 		if (print)
+		{
 			ft_putstr_fd("sb\n", 1);
-		bench->sb++;
+			bench->sb++;
+		}
 	}
 }
 
