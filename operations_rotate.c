@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 10:09:36 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:33:04 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"		// ojo
+#include "push_swap.h"
 
 static void	rotate(t_stack *s)
 {

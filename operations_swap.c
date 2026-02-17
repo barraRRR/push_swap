@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 15:54:01 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 10:10:04 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:32:44 by edsole-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"	//ojo
+#include "push_swap.h"
 
 static void	swap(t_stack *s)
 {
