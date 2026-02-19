@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 16:19:53 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 14:40:24 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:44:36 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	add_total(t_bench bench)
 {

@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 15:05:50 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 14:42:54 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:44:44 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	rotate(t_stack *s)
 {

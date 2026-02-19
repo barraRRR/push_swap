@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:08:46 by edsole-a          #+#    #+#             */
-/*   Updated: 2026/02/16 19:21:55 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:44:23 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	get_max_bits(int size)
 {

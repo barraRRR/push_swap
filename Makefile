@@ -6,7 +6,7 @@
 #    By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 18:10:00 by edsole-a          #+#    #+#              #
-#    Updated: 2026/02/17 14:31:24 by jbarreir         ###   ########.fr        #
+#    Updated: 2026/02/19 11:41:17 by jbarreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 HEADER      = push_swap.h
 
-SRC         = main.c                stack_builder.c			\
-              ps_split.c            bench_mode.c			\
-              operations_push.c     operations_reverse.c	\
-              operations_rotate.c   operations_swap.c		\
-              algorithm_simple.c    algorithm_medium.c		\
-              algorithm_complex.c   algorithm_selector.c	\
-              utils_generic.c       utils_algorithm.c		\
-			  utils_strings.c								\
+SRC         = main.c                			parsing/stack_builder.c			\
+              utils/ps_split.c            		bench/bench_mode.c			\
+              operations/operations_push.c     	operations/operations_reverse.c	\
+              operations/operations_rotate.c   	operations/operations_swap.c		\
+              algorithm/algorithm_simple.c    	algorithm/algorithm_medium.c		\
+              algorithm/algorithm_complex.c   	algorithm/algorithm_selector.c	\
+              utils/utils_generic.c       		utils/utils_algorithm.c		\
+			  utils/utils_strings.c								\
 
 OBJ         = $(SRC:.c=.o)
 

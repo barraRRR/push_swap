@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_builder.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edsole-a <edsole-a@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:44:06 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/17 13:03:42 by edsole-a         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:45:27 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static bool	duplicate_values(t_lst *lst, int value)
 {

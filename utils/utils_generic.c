@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 18:18:17 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 18:57:25 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:44:11 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

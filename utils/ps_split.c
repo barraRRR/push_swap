@@ -6,11 +6,11 @@
 /*   By: jbarreir <jbarreir@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:51:44 by jbarreir          #+#    #+#             */
-/*   Updated: 2026/02/16 18:57:35 by jbarreir         ###   ########.fr       */
+/*   Updated: 2026/02/19 11:44:01 by jbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static bool	free_partial(char **split, int i)
 {
@@ -104,8 +104,12 @@ static bool	extract_strings(char **argv, char **split)
 char	**ps_split(char **argv)
 {
 	char	**split;
+	int		tokens;
 
-	split = malloc(sizeof(char *) * (count_blocks(argv) + 1));
+	tokens = count_blocks(argv);
+	if (!tokens)
+		return (NULL);
+	split = malloc(sizeof(char *) * (tokens + 1));
 	if (!split)
 		return (NULL);
 	if (!extract_strings(argv, split))
